@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hafiáda</title>
+    <script>
+      // Uloží požadovanou adresu a přesměruje na index, kde ji React Router obnoví.
+      (function () {
+        var host = location.hostname;
+        // Na *.github.io je první segment cesty název repozitáře (base path).
+        var base = "/";
+        if (host.endsWith("github.io")) {
+          var seg = location.pathname.split("/")[1];
+          if (seg) base = "/" + seg + "/";
+        }
+        sessionStorage.redirect = location.href;
+        location.replace(location.origin + base);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Hafiáda 2026 – zábavný den pro celou rodinu se psy. Soutěže, Haficross a pomoc zvířátkům v nouzi. 30. 8. 2026 v Bystřici."
+    />
+    <meta property="og:title" content="Hafiáda 2026 – setkání milovníků všech psů" />
+    <meta
+      property="og:description"
+      content="Zábavný den pro celou rodinu se psy. Bez rasových předsudků. 30. 8. 2026, Bystřice."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Hafiáda 2026 – setkání milovníků všech psů</title>
+    <!-- SPA redirect pro GitHub Pages: obnoví cestu uloženou v 404.html -->
+    <script>
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, "", redirect);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
