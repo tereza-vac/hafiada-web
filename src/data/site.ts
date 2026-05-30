@@ -51,11 +51,11 @@ export type FormConfig = {
 export const forms: Record<"hafiada" | "haficross", FormConfig> = {
   hafiada: {
     mode: "embed",
-    url: "", // např. https://docs.google.com/forms/d/e/XXXX/viewform?embedded=true
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSfhljYImAq6LikZz5lk5_Qkj_u9FMhhhS_oiNxcbukPEpaN8g/viewform?embedded=true",
   },
   haficross: {
     mode: "embed",
-    url: "",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSekUnZbPtygGiIuRUTUgi41XRPpfW3rr2XJ20huLjGu-nts_Q/viewform?embedded=true",
   },
 };
 
