@@ -257,9 +257,6 @@ function Footer() {
             Celé startovné i dobrovolné vstupné putuje na pomoc zvířátkům v
             nouzi.
           </p>
-          <p className="mt-3 rounded-xl bg-white/10 px-3 py-2 text-sm font-semibold text-white">
-            č. ú.: {event.account}
-          </p>
           <div className="mt-4">
             <DonationQR size={120} tone="dark" />
           </div>
