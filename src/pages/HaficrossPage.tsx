@@ -2,6 +2,7 @@ import { PageHero, Section, SectionTitle, Callout, Button } from "../components/
 import { CheckIcon, HeartIcon, RunIcon } from "../components/icons";
 import { event } from "../data/site";
 import { images } from "../data/images";
+import { DonationQR } from "../components/DonationQR";
 import { useSeo } from "../hooks/useSeo";
 
 const rules = [
@@ -86,6 +87,9 @@ export default function HaficrossPage() {
               Startovné 300 Kč bude akceptováno jako zaplacené, pokud bude připsáno na účet u Fio banky č. {event.account} nejpozději do 24. 8. 2026. Na pozdější reklamace nebude brán zřetel.
             </p>
           </Callout>
+          <div className="mt-6 flex justify-center">
+            <DonationQR size={132} />
+          </div>
         </div>
       </Section>
     </>

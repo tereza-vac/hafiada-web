@@ -2,6 +2,7 @@ import { PageHero, Section, SectionTitle, Card, Callout } from "../components/ui
 import { CheckIcon, PinIcon } from "../components/icons";
 import { event } from "../data/site";
 import { images } from "../data/images";
+import { DonationQR } from "../components/DonationQR";
 import { useSeo } from "../hooks/useSeo";
 
 const arrival = [
@@ -133,6 +134,9 @@ export default function PropozicePage() {
                 <li>• Do „zprávy pro příjemce“ napište příjmení a jméno psovoda i psa.</li>
                 <li>• Pokud chcete jet Haficross i Hafiádu, platí se jen jedna platba 300 Kč, ale vyplňte dvě přihlášky a do poznámky napište „Haficross + Hafiáda“.</li>
               </ul>
+              <div className="mt-5 border-t border-brand-100 pt-4">
+                <DonationQR size={128} />
+              </div>
             </Card>
             <Callout tone="info">
               <p>

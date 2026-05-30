@@ -12,6 +12,7 @@ import {
 } from "../components/icons";
 import { event, photoContest } from "../data/site";
 import { images } from "../data/images";
+import { DonationQR } from "../components/DonationQR";
 import { useSeo } from "../hooks/useSeo";
 
 function Countdownish() {
@@ -218,6 +219,9 @@ export default function HomePage() {
             <p className="mt-4 rounded-xl bg-white px-4 py-3 text-sm">
               Číslo účtu: <span className="font-bold">{event.account}</span> ({event.bank})
             </p>
+            <div className="mt-4 flex justify-center rounded-xl bg-white px-4 py-4">
+              <DonationQR size={128} />
+            </div>
           </Card>
 
           <div className="flex flex-col justify-center rounded-3xl bg-brand-600 p-8 text-white">
