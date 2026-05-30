@@ -13,7 +13,7 @@ export default function FotogaleriePage() {
       <PageHero
         eyebrow="O nás"
         title="Fotogalerie"
-        subtitle="Atmosféra Hafiády – psí radost, soutěže a skvělá společnost. (Ukázkové fotky, doplníme reálné snímky z akce.)"
+        subtitle="Atmosféra Hafiády – psí radost, soutěže a skvělá společnost na snímcích z akce."
         image={images.group}
       />
       <Section>

@@ -1,6 +1,6 @@
 import { PageHero, Section, Card, Button } from "../components/ui";
 import { HeartIcon, MailIcon } from "../components/icons";
-import { contact } from "../data/site";
+import { contact, sponsors } from "../data/site";
 import { images } from "../data/images";
 import { useSeo } from "../hooks/useSeo";
 
@@ -30,13 +30,37 @@ export default function SponzoriPage() {
         </div>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <Card key={i} className="flex h-32 items-center justify-center">
-              <span className="font-display text-lg font-bold text-stone-300">
-                Místo pro logo sponzora
-              </span>
-            </Card>
-          ))}
+          {sponsors.map((s) => {
+            const inner = (
+              <>
+                <img
+                  src={s.logo}
+                  alt={s.name}
+                  loading="lazy"
+                  className="max-h-24 w-auto object-contain"
+                />
+                <span className="mt-3 text-center text-sm font-semibold text-stone-600">
+                  {s.name}
+                </span>
+              </>
+            );
+            return (
+              <Card key={s.name} className="flex h-44 flex-col items-center justify-center">
+                {s.url ? (
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex flex-col items-center transition hover:opacity-80"
+                  >
+                    {inner}
+                  </a>
+                ) : (
+                  inner
+                )}
+              </Card>
+            );
+          })}
         </div>
 
         <div className="mt-12 rounded-3xl bg-brand-600 p-8 text-center text-white">

@@ -2,6 +2,8 @@
 // Centrální nastavení webu. Tady měň texty, kontakty a odkazy na formuláře.
 // ---------------------------------------------------------------------------
 
+import { sponsorLogos } from "./images";
+
 export const event = {
   year: 2026,
   date: "30. 8. 2026",
@@ -75,3 +77,15 @@ export const photoContest = {
   year: 2026,
   theme: "♡ Můj pes je nejkrásnější ♡",
 };
+
+export type Sponsor = { name: string; logo: string; url?: string };
+
+// Sponzoři převzatí z původního webu. Doplň/uprav názvy a přidej odkazy (url).
+export const sponsors: Sponsor[] = [
+  { name: "Obec Bystřice", logo: sponsorLogos.bystrice, url: "https://www.bystrice.cz/" },
+  { name: "A8 Reklama", logo: sponsorLogos.a8 },
+  { name: "NNT Products", logo: sponsorLogos.nnt },
+  { name: "Rosigrafik – grafika & design", logo: sponsorLogos.rosigrafik },
+  { name: "Szturc – tvůrce interiérů", logo: sponsorLogos.szturc },
+  { name: "Cann Rest", logo: sponsorLogos.cannrest },
+];
