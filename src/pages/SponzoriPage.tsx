@@ -1,10 +1,12 @@
 import { PageHero, Section, Card, Button } from "../components/ui";
 import { HeartIcon, MailIcon } from "../components/icons";
-import { contact, sponsors } from "../data/site";
+import { sponsors } from "../data/site";
 import { images } from "../data/images";
+import { useContact } from "../components/ContactModal";
 import { useSeo } from "../hooks/useSeo";
 
 export default function SponzoriPage() {
+  const { open } = useContact();
   useSeo({
     title: "Naši sponzoři",
     description:
@@ -68,7 +70,7 @@ export default function SponzoriPage() {
           <p className="mx-auto mt-2 max-w-xl text-brand-50">
             Pokud byste rádi podpořili naši akci a pomohli zvířátkům v nouzi, ozvěte se nám. Rádi probereme možnosti spolupráce.
           </p>
-          <Button href={`mailto:${contact.email}?subject=Sponzoring Hafiáda`} variant="secondary" className="mt-5">
+          <Button variant="secondary" className="mt-5" onClick={() => open("Sponzoring Hafiáda")}>
             <MailIcon className="h-5 w-5" /> Napsat nám
           </Button>
         </div>

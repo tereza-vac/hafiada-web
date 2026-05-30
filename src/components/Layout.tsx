@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { contact, event } from "../data/site";
+import { ContactProvider, useContact } from "./ContactModal";
 import {
   FacebookIcon,
   MailIcon,
@@ -185,6 +186,7 @@ function Header() {
 }
 
 function Footer() {
+  const { open } = useContact();
   return (
     <footer className="mt-auto bg-ink text-stone-300">
       <div className="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
@@ -236,6 +238,15 @@ function Footer() {
                 Skupina Hafiáda
               </a>
             </li>
+            <li>
+              <button
+                onClick={() => open("Dotaz z webu Hafiáda")}
+                className="mt-1 inline-flex items-center gap-2 rounded-full bg-brand-500 px-4 py-2 font-semibold text-white transition hover:bg-brand-600"
+              >
+                <MailIcon className="h-5 w-5" />
+                Napsat nám
+              </button>
+            </li>
           </ul>
         </div>
 
@@ -271,12 +282,14 @@ function Footer() {
 
 export default function Layout() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <Header />
-      <main className="flex-1">
-        <Outlet />
-      </main>
-      <Footer />
-    </div>
+    <ContactProvider>
+      <div className="flex min-h-screen flex-col">
+        <Header />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+    </ContactProvider>
   );
 }

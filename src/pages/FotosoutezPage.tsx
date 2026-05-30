@@ -1,10 +1,12 @@
 import { PageHero, Section, Card, Button } from "../components/ui";
 import { CameraIcon, HeartIcon } from "../components/icons";
-import { contact, photoContest } from "../data/site";
+import { photoContest } from "../data/site";
 import { images } from "../data/images";
+import { useContact } from "../components/ContactModal";
 import { useSeo } from "../hooks/useSeo";
 
 export default function FotosoutezPage() {
+  const { open } = useContact();
   useSeo({
     title: "Fotosoutěž 2026",
     description:
@@ -39,7 +41,7 @@ export default function FotosoutezPage() {
             <p className="mt-2 text-stone-700">
               Vyfoťte svého psího parťáka tak, aby na fotce vynikla jeho krása a osobnost. Fotku nám pošlete a sledujte naši facebookovou skupinu, kde budeme zveřejňovat další informace o hlasování a cenách.
             </p>
-            <Button href={`mailto:${contact.email}?subject=Fotosoutěž 2026`} className="mt-5">
+            <Button className="mt-5" onClick={() => open("Fotosoutěž 2026 – moje fotka")}>
               Poslat fotku e-mailem
             </Button>
           </Card>

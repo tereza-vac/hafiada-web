@@ -1,50 +1,9 @@
-import { useState, type FormEvent } from "react";
-import { PageHero, Section, Card, Button, SectionTitle } from "../components/ui";
+import { PageHero, Section, Card, SectionTitle } from "../components/ui";
 import { MailIcon, PhoneIcon, PinIcon } from "../components/icons";
 import { contact, event } from "../data/site";
 import { images } from "../data/images";
+import { ContactForm } from "../components/ContactForm";
 import { useSeo } from "../hooks/useSeo";
-
-function ContactForm() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-
-  const onSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    const subject = encodeURIComponent(`Dotaz z webu – ${name || "návštěvník"}`);
-    const body = encodeURIComponent(
-      `Jméno: ${name}\nE-mail: ${email}\n\n${message}`
-    );
-    window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`;
-  };
-
-  const field =
-    "w-full rounded-xl border border-brand-200 bg-white px-4 py-3 text-stone-800 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-100";
-
-  return (
-    <Card>
-      <form onSubmit={onSubmit} className="space-y-4">
-        <div>
-          <label className="mb-1 block text-sm font-semibold text-stone-700">Jméno a příjmení</label>
-          <input className={field} value={name} onChange={(e) => setName(e.target.value)} required />
-        </div>
-        <div>
-          <label className="mb-1 block text-sm font-semibold text-stone-700">E-mail</label>
-          <input type="email" className={field} value={email} onChange={(e) => setEmail(e.target.value)} required />
-        </div>
-        <div>
-          <label className="mb-1 block text-sm font-semibold text-stone-700">Zpráva</label>
-          <textarea rows={5} className={field} value={message} onChange={(e) => setMessage(e.target.value)} required />
-        </div>
-        <Button type="submit">Odeslat</Button>
-        <p className="text-xs text-stone-400">
-          Odesláním se otevře váš e-mailový klient s předvyplněnou zprávou na {contact.email}.
-        </p>
-      </form>
-    </Card>
-  );
-}
 
 export default function KontaktPage() {
   useSeo({
@@ -64,7 +23,9 @@ export default function KontaktPage() {
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
             <SectionTitle eyebrow="Napište nám" title="Máte dotaz?" />
-            <ContactForm />
+            <Card>
+              <ContactForm defaultSubject="Dotaz z webu Hafiáda" />
+            </Card>
           </div>
 
           <div className="space-y-6">
