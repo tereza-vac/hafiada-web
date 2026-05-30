@@ -3,6 +3,7 @@ import { MailIcon, PhoneIcon, PinIcon } from "../components/icons";
 import { contact, event } from "../data/site";
 import { images } from "../data/images";
 import { ContactForm } from "../components/ContactForm";
+import { DonationQR } from "../components/DonationQR";
 import { useSeo } from "../hooks/useSeo";
 
 export default function KontaktPage() {
@@ -47,6 +48,13 @@ export default function KontaktPage() {
                   <span className="text-stone-700">{event.account}</span>
                 </li>
               </ul>
+              <div className="mt-5 flex items-center gap-4 rounded-2xl bg-brand-50 p-4">
+                <DonationQR size={120} />
+                <p className="text-sm text-stone-600">
+                  Chcete přispět na pomoc zvířátkům v nouzi? Naskenujte QR kód
+                  ve své bankovní aplikaci – částku si zvolíte sami.
+                </p>
+              </div>
             </Card>
 
             <Card>

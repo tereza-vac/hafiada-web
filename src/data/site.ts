@@ -15,8 +15,13 @@ export const event = {
   gps: "49.6393886N, 18.7220669E",
   navAddress: "Bystřice 848",
   account: "2801709799/2010",
+  iban: "CZ0420100000002801709799",
   bank: "Fio banka (transparentní účet)",
 };
+
+// Řetězec pro QR platbu dle českého standardu SPAYD (čte ho každá bankovní aplikace).
+// MSG záměrně bez diakritiky kvůli kompatibilitě.
+export const qrPaymentString = `SPD*1.0*ACC:${event.iban}*CC:CZK*MSG:HAFIADA - podpora zviratkum v nouzi`;
 
 export type Organizer = {
   name: string;

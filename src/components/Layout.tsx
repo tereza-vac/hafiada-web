@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { contact, event } from "../data/site";
 import { ContactProvider, useContact } from "./ContactModal";
+import { DonationQR } from "./DonationQR";
 import {
   FacebookIcon,
   MailIcon,
@@ -259,6 +260,9 @@ function Footer() {
           <p className="mt-3 rounded-xl bg-white/10 px-3 py-2 text-sm font-semibold text-white">
             č. ú.: {event.account}
           </p>
+          <div className="mt-4">
+            <DonationQR size={120} tone="dark" />
+          </div>
         </div>
       </div>
       <div className="border-t border-white/10">
