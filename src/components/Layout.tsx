@@ -251,9 +251,18 @@ function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="container-page flex flex-col items-center justify-between gap-2 py-5 text-xs text-stone-500 sm:flex-row">
+        <div className="container-page flex flex-col items-center gap-2 py-5 text-xs text-stone-500 sm:flex-row sm:justify-between">
           <p>© {new Date().getFullYear()} Hafiáda, z.s. Všechna práva vyhrazena.</p>
-          <p>Bez rasových předsudků 🐾</p>
+          <p className="hidden sm:block">Bez rasových předsudků 🐾</p>
+          <p>
+            Webové stránky vytvořila{" "}
+            <a
+              href="mailto:vacina.tereza@gmail.com"
+              className="font-semibold text-stone-300 hover:text-white"
+            >
+              Tereza Vačina
+            </a>
+          </p>
         </div>
       </div>
     </footer>
