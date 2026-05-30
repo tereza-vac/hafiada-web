@@ -60,9 +60,14 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-brand-900/85 via-brand-800/75 to-brand-600/55" />
         <div className="container-page relative grid min-h-[78vh] items-center py-20">
           <div className="max-w-2xl">
-            <p className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-semibold backdrop-blur">
-              <PawIcon className="h-4 w-4" /> Bez rasových předsudků
-            </p>
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-semibold backdrop-blur">
+                <PawIcon className="h-4 w-4" /> Bez rasových předsudků
+              </p>
+              <p className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-4 py-1.5 text-sm font-extrabold text-amber-950 shadow-lg">
+                <CalendarIcon className="h-4 w-4" /> {event.date}
+              </p>
+            </div>
             <h1 className="mt-5 text-4xl font-extrabold leading-tight sm:text-6xl">
               Zábavný den pro celou rodinu se psy
             </h1>

@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-50: #fff7ed;
-  --color-brand-100: #ffedd5;
-  --color-brand-200: #fed7aa;
-  --color-brand-300: #fdba74;
-  --color-brand-400: #fb923c;
-  --color-brand-500: #f97316;
-  --color-brand-600: #ea580c;
-  --color-brand-700: #c2410c;
-  --color-brand-800: #9a3412;
-  --color-brand-900: #7c2d12;
+  --color-brand-50: #fdf2f8;
+  --color-brand-100: #fce7f1;
+  --color-brand-200: #fbcfe3;
+  --color-brand-300: #f6a6c9;
+  --color-brand-400: #ef6fa6;
+  --color-brand-500: #e23d83;
+  --color-brand-600: #cc2670;
+  --color-brand-700: #a91d5b;
+  --color-brand-800: #8a1a4c;
+  --color-brand-900: #731843;
 
   --color-teal-50: #f0fdfa;
   --color-teal-100: #ccfbf1;
@@ -52,7 +52,7 @@
   .paw-bg {
     background-image: radial-gradient(
       circle at 1px 1px,
-      rgba(234, 88, 12, 0.08) 2px,
+      rgba(226, 61, 131, 0.08) 2px,
       transparent 0
     );
     background-size: 28px 28px;
