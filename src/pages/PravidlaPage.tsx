@@ -1,5 +1,5 @@
 import { PageHero, Section, Callout, Card } from "../components/ui";
-import { CheckIcon } from "../components/icons";
+import { AlertIcon, CheckIcon } from "../components/icons";
 import { competitions } from "../data/content";
 import { images } from "../data/images";
 import { useSeo } from "../hooks/useSeo";
@@ -38,6 +38,14 @@ export default function PravidlaPage() {
                   <p key={i}>{p}</p>
                 ))}
               </div>
+              {c.note && (
+                <div className="mt-4 flex gap-3 rounded-2xl border-l-4 border-brand-500 bg-brand-50 p-4">
+                  <AlertIcon className="mt-0.5 h-5 w-5 shrink-0 text-brand-600" />
+                  <p className="text-[15px] font-semibold text-brand-900">
+                    {c.note}
+                  </p>
+                </div>
+              )}
               {c.categories && (
                 <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                   {c.categories.map((cat) => (

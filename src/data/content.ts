@@ -2,6 +2,7 @@ export type Competition = {
   title: string;
   paragraphs: string[];
   categories?: string[];
+  note?: string;
 };
 
 export const competitions: Competition[] = [
@@ -9,8 +10,8 @@ export const competitions: Competition[] = [
     title: "Poslušnost – Nejlepší mladý cvičitel",
     paragraphs: [
       "Tato disciplína je určena pro začínající psovody, je cílená především na děti. Má za cíl předvést, jak dítě s pejskem pracuje, jaký mají vzájemný vztah a jaká je mezi psem a dítětem vzájemná souhra.",
-      "Horní hranice věku cvičitele je 15 let. Kdo se hlásí do soutěže v poslušnosti, NEMŮŽE současně soutěžit ve freestyle.",
     ],
+    note: "Horní hranice věku cvičitele je 15 let. Kdo se hlásí do soutěže v poslušnosti, NEMŮŽE současně soutěžit ve freestyle.",
   },
   {
     title: "Mladý vystavovatel – juniorhandling",

@@ -39,8 +39,13 @@ const navItems: NavItem[] = [
   },
   { label: "Harmonogram", to: "/harmonogram" },
   { label: "Fotosoutěž 2026", to: "/fotosoutez" },
-  { label: "Haficross 2026", to: "/haficross" },
-  { label: "Startovka", to: "/startovka" },
+  {
+    label: "Haficross 2026",
+    children: [
+      { label: "O Haficrossu 2026", to: "/haficross" },
+      { label: "Startovka", to: "/startovka" },
+    ],
+  },
 ];
 
 function Logo() {
