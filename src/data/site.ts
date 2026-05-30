@@ -16,20 +16,32 @@ export const event = {
   bank: "Fio banka (transparentní účet)",
 };
 
+export type Organizer = {
+  name: string;
+  role: string;
+  phone?: string;
+  email?: string;
+  address?: string;
+};
+
 export const contact = {
   email: "hafiada@seznam.cz",
   facebookGroup: "https://www.facebook.com/groups/hafiada",
   organizers: [
-    { name: "Sylwia Gajger", role: "Hlavní organizátorka" },
-    { name: "Diana Džupinová", role: "Hlavní organizátorka" },
-  ],
-  founder: {
-    name: "Eva Matlochová",
-    role: "Zakladatelka Hafiády",
-    address: "Nýdek 542, 739 96 Nýdek",
-    phone: "+420 605 780 982",
-    email: "eva.matlochova@seznam.cz",
-  },
+    {
+      name: "Eva Matlochová",
+      role: "Organizátorka",
+      address: "Nýdek 542, 739 96 Nýdek",
+      phone: "+420 605 780 982",
+      email: "eva.matlochova@seznam.cz",
+    },
+    {
+      name: "Tereza Vačina",
+      role: "Organizátorka",
+      phone: "+420 736 520 587",
+      email: "vacina.tereza@gmail.com",
+    },
+  ] satisfies Organizer[],
 };
 
 // ---------------------------------------------------------------------------

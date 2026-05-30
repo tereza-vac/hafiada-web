@@ -83,28 +83,35 @@ export default function KontaktPage() {
             </Card>
 
             <Card>
-              <h3 className="font-display text-xl font-bold">Hlavní organizátorky</h3>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <h3 className="font-display text-xl font-bold">Organizátoři</h3>
+              <div className="mt-4 grid gap-4">
                 {contact.organizers.map((o) => (
-                  <div key={o.name} className="rounded-xl bg-brand-50 px-4 py-3">
+                  <div key={o.name} className="rounded-2xl bg-brand-50 p-4">
                     <p className="font-semibold text-stone-800">{o.name}</p>
                     <p className="text-sm text-stone-500">{o.role}</p>
+                    {o.address && (
+                      <p className="mt-1 text-sm text-stone-600">{o.address}</p>
+                    )}
+                    <div className="mt-2 flex flex-col gap-1.5 text-stone-700">
+                      {o.phone && (
+                        <a
+                          href={`tel:${o.phone.replace(/\s/g, "")}`}
+                          className="flex items-center gap-2 hover:text-brand-700"
+                        >
+                          <PhoneIcon className="h-5 w-5 text-brand-600" /> {o.phone}
+                        </a>
+                      )}
+                      {o.email && (
+                        <a
+                          href={`mailto:${o.email}`}
+                          className="flex items-center gap-2 hover:text-brand-700"
+                        >
+                          <MailIcon className="h-5 w-5 text-brand-600" /> {o.email}
+                        </a>
+                      )}
+                    </div>
                   </div>
                 ))}
-              </div>
-            </Card>
-
-            <Card>
-              <h3 className="font-display text-xl font-bold">{contact.founder.role}</h3>
-              <p className="mt-3 font-semibold text-stone-800">{contact.founder.name}</p>
-              <p className="text-stone-600">{contact.founder.address}</p>
-              <div className="mt-3 flex flex-col gap-2 text-stone-700">
-                <a href={`tel:${contact.founder.phone.replace(/\s/g, "")}`} className="flex items-center gap-2 hover:text-brand-700">
-                  <PhoneIcon className="h-5 w-5 text-brand-600" /> {contact.founder.phone}
-                </a>
-                <a href={`mailto:${contact.founder.email}`} className="flex items-center gap-2 hover:text-brand-700">
-                  <MailIcon className="h-5 w-5 text-brand-600" /> {contact.founder.email}
-                </a>
               </div>
             </Card>
           </div>

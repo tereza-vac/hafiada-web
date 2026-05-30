@@ -224,9 +224,9 @@ function Footer() {
               </a>
             </li>
             <li>
-              <a href={`tel:${contact.founder.phone.replace(/\s/g, "")}`} className="flex items-center gap-2 hover:text-white">
+              <a href={`tel:${contact.organizers[0].phone?.replace(/\s/g, "")}`} className="flex items-center gap-2 hover:text-white">
                 <PhoneIcon className="h-5 w-5 text-brand-400" />
-                {contact.founder.phone}
+                {contact.organizers[0].phone}
               </a>
             </li>
             <li>
