@@ -1,8 +1,7 @@
-import { PageHero, Section, SectionTitle, Callout, Button } from "../components/ui";
+import { PageHero, Section, SectionTitle, Card, Button } from "../components/ui";
 import { CheckIcon, HeartIcon, RunIcon } from "../components/icons";
-import { event } from "../data/site";
 import { images } from "../data/images";
-import { DonationQR } from "../components/DonationQR";
+import { PaymentDetails } from "../components/Payment";
 import { useSeo } from "../hooks/useSeo";
 
 const rules = [
@@ -81,15 +80,9 @@ export default function HaficrossPage() {
           ))}
         </ul>
         <div className="mx-auto mt-8 max-w-4xl">
-          <Callout tone="warning">
-            <p className="font-bold uppercase">Upozornění k platbě</p>
-            <p>
-              Startovné 300 Kč bude akceptováno jako zaplacené, pokud bude připsáno na účet u Fio banky č. {event.account} nejpozději do 24. 8. 2026. Na pozdější reklamace nebude brán zřetel.
-            </p>
-          </Callout>
-          <div className="mt-6 flex justify-center">
-            <DonationQR size={132} />
-          </div>
+          <Card className="bg-brand-50/60">
+            <PaymentDetails />
+          </Card>
         </div>
       </Section>
     </>

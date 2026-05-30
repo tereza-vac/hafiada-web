@@ -1,9 +1,9 @@
 import { PageHero, Section, Callout, Card } from "../components/ui";
 import { GoogleForm } from "../components/GoogleForm";
 import { CheckIcon } from "../components/icons";
-import { event, forms } from "../data/site";
+import { forms } from "../data/site";
 import { images } from "../data/images";
-import { DonationQR } from "../components/DonationQR";
+import { PaymentDetails } from "../components/Payment";
 import { useSeo } from "../hooks/useSeo";
 
 export default function PrihlaskaHaficrossPage() {
@@ -29,8 +29,6 @@ export default function PrihlaskaHaficrossPage() {
                 {[
                   "Závod je určen pouze pro dospělé psy (nad 18 měsíců).",
                   "Závodník je starší 18 let (mladší v doprovodu dospělého).",
-                  "Startovné 300 Kč na účet do 24. 8. 2026.",
-                  `Číslo účtu: ${event.account}, do poznámky napište „Haficross“.`,
                   "Chcete-li jet i Hafiádu, vyplňte i druhou přihlášku.",
                 ].map((t) => (
                   <li key={t} className="flex items-start gap-2">
@@ -39,13 +37,12 @@ export default function PrihlaskaHaficrossPage() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-5 border-t border-brand-100 pt-4">
-                <p className="mb-3 text-sm font-semibold text-stone-700">
-                  Rychlá platba QR kódem
-                </p>
-                <DonationQR size={128} />
-              </div>
             </Card>
+            <div className="mt-4">
+              <Card className="bg-brand-50/60">
+                <PaymentDetails />
+              </Card>
+            </div>
             <div className="mt-4">
               <Callout tone="info">
                 <p>

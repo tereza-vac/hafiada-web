@@ -3,7 +3,7 @@ import { GoogleForm } from "../components/GoogleForm";
 import { CheckIcon } from "../components/icons";
 import { event, forms } from "../data/site";
 import { images } from "../data/images";
-import { DonationQR } from "../components/DonationQR";
+import { PaymentDetails } from "../components/Payment";
 import { useSeo } from "../hooks/useSeo";
 
 export default function PrihlaskaHafiadaPage() {
@@ -28,9 +28,6 @@ export default function PrihlaskaHafiadaPage() {
               <ul className="mt-4 space-y-3 text-[15px] text-stone-700">
                 {[
                   "Každý startující pes musí mít vyplněnou vlastní přihlášku.",
-                  "Startovné 300 Kč předem na účet, každý další pes 150 Kč.",
-                  `Číslo účtu: ${event.account}.`,
-                  "Jako VS uveďte telefonní číslo z přihlášky.",
                   "Přihlášky se ukládají automaticky, potvrzení na e-mail nechodí.",
                 ].map((t) => (
                   <li key={t} className="flex items-start gap-2">
@@ -39,13 +36,12 @@ export default function PrihlaskaHafiadaPage() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-5 border-t border-brand-100 pt-4">
-                <p className="mb-3 text-sm font-semibold text-stone-700">
-                  Rychlá platba QR kódem
-                </p>
-                <DonationQR size={128} />
-              </div>
             </Card>
+            <div className="mt-4">
+              <Card className="bg-brand-50/60">
+                <PaymentDetails />
+              </Card>
+            </div>
             <div className="mt-4">
               <Callout tone="info">
                 <p>

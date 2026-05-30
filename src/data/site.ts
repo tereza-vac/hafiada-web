@@ -20,8 +20,26 @@ export const event = {
 };
 
 // Řetězec pro QR platbu dle českého standardu SPAYD (čte ho každá bankovní aplikace).
-// MSG záměrně bez diakritiky kvůli kompatibilitě.
+// MSG záměrně bez diakritiky kvůli kompatibilitě. Tento je pro dobrovolný dar (bez částky).
 export const qrPaymentString = `SPD*1.0*ACC:${event.iban}*CC:CZK*MSG:HAFIADA - podpora zviratkum v nouzi`;
+
+// Jediný zdroj pravdy pro platbu startovného – pokyny používej VŠUDE stejné.
+export const payment = {
+  account: event.account,
+  iban: event.iban,
+  bank: event.bank,
+  amount: 300,
+  amountNextDog: 150,
+  amountOnSite: 500,
+  paymentDeadline: "24. 8. 2026",
+  instructions: [
+    "Startovné 300 Kč zaplaťte předem na účet (každý další pes 150 Kč, přihláška na místě 500 Kč).",
+    "Jako variabilní symbol (VS) uveďte telefonní číslo z přihlášky.",
+    "Do zprávy pro příjemce napište příjmení a jméno psovoda i psa.",
+    "Platba musí být připsána na účet nejpozději 24. 8. 2026.",
+    "Jedete Haficross i Hafiádu? Stačí jedna platba 300 Kč – vyplňte obě přihlášky a do zprávy napište „Haficross + Hafiáda“.",
+  ],
+};
 
 export type Organizer = {
   name: string;

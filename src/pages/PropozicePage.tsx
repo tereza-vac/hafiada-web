@@ -2,7 +2,7 @@ import { PageHero, Section, SectionTitle, Card, Callout } from "../components/ui
 import { CheckIcon, PinIcon } from "../components/icons";
 import { event } from "../data/site";
 import { images } from "../data/images";
-import { DonationQR } from "../components/DonationQR";
+import { PaymentDetails } from "../components/Payment";
 import { useSeo } from "../hooks/useSeo";
 
 const arrival = [
@@ -122,21 +122,7 @@ export default function PropozicePage() {
           </Card>
           <div className="space-y-4">
             <Card className="bg-brand-50/60">
-              <p className="font-semibold">Platební údaje</p>
-              <p className="mt-2 text-stone-700">
-                Startovné poukažte na transparentní účet u Fio banky:
-              </p>
-              <p className="mt-1 font-display text-xl font-bold text-brand-700">
-                {event.account}
-              </p>
-              <ul className="mt-3 space-y-1 text-sm text-stone-600">
-                <li>• Jako VS uveďte své telefonní číslo z přihlášky.</li>
-                <li>• Do „zprávy pro příjemce“ napište příjmení a jméno psovoda i psa.</li>
-                <li>• Pokud chcete jet Haficross i Hafiádu, platí se jen jedna platba 300 Kč, ale vyplňte dvě přihlášky a do poznámky napište „Haficross + Hafiáda“.</li>
-              </ul>
-              <div className="mt-5 border-t border-brand-100 pt-4">
-                <DonationQR size={128} />
-              </div>
+              <PaymentDetails />
             </Card>
             <Callout tone="info">
               <p>
