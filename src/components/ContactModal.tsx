@@ -8,8 +8,10 @@ import {
 } from "react";
 import { ContactForm } from "./ContactForm";
 
+type ContactOptions = { attachment?: boolean };
+
 type ContactContextValue = {
-  open: (subject?: string) => void;
+  open: (subject?: string, options?: ContactOptions) => void;
 };
 
 const ContactContext = createContext<ContactContextValue | null>(null);
@@ -23,9 +25,11 @@ export function useContact() {
 export function ContactProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const [subject, setSubject] = useState<string | undefined>(undefined);
+  const [attachment, setAttachment] = useState(false);
 
-  const open = useCallback((s?: string) => {
+  const open = useCallback((s?: string, options?: ContactOptions) => {
     setSubject(s);
+    setAttachment(options?.attachment ?? false);
     setIsOpen(true);
   }, []);
 
@@ -70,12 +74,17 @@ export function ContactProvider({ children }: { children: ReactNode }) {
               </svg>
             </button>
             <h2 className="font-display text-2xl font-extrabold text-ink">
-              Napište nám
+              {attachment ? "Poslat fotku do soutěže" : "Napište nám"}
             </h2>
             <p className="mt-1 mb-5 text-stone-600">
-              Vyplňte svůj e-mail a zprávu – ozveme se vám co nejdříve.
+              {attachment
+                ? "Vyplňte svůj e-mail a nahrajte fotku (nebo více fotek) přímo tady."
+                : "Vyplňte svůj e-mail a zprávu – ozveme se vám co nejdříve."}
             </p>
-            <ContactForm defaultSubject={subject ?? "Dotaz z webu Hafiáda"} />
+            <ContactForm
+              defaultSubject={subject ?? "Dotaz z webu Hafiáda"}
+              withAttachment={attachment}
+            />
           </div>
         </div>
       )}

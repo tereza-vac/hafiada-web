@@ -1,4 +1,5 @@
-import { PageHero, Section, Card, Button } from "../components/ui";
+import { useSearchParams } from "react-router-dom";
+import { PageHero, Section, Card, Button, Callout } from "../components/ui";
 import { CameraIcon, HeartIcon } from "../components/icons";
 import { photoContest } from "../data/site";
 import { images } from "../data/images";
@@ -7,6 +8,8 @@ import { useSeo } from "../hooks/useSeo";
 
 export default function FotosoutezPage() {
   const { open } = useContact();
+  const [params] = useSearchParams();
+  const justSent = params.get("odeslano") === "fotka";
   useSeo({
     title: "Fotosoutěž 2026",
     description:
@@ -21,6 +24,17 @@ export default function FotosoutezPage() {
         image={images.puppy}
       />
       <Section>
+        {justSent && (
+          <div className="mx-auto mb-10 max-w-3xl">
+            <Callout tone="info">
+              <p className="font-semibold">Fotka odeslána, děkujeme!</p>
+              <p>
+                Vaši fotku jsme přijali. Sledujte naši facebookovou skupinu, kde
+                budeme zveřejňovat další informace o hlasování a cenách.
+              </p>
+            </Callout>
+          </div>
+        )}
         <div className="mx-auto max-w-3xl text-center">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-brand-100 text-brand-600">
             <CameraIcon className="h-8 w-8" />
@@ -41,8 +55,13 @@ export default function FotosoutezPage() {
             <p className="mt-2 text-stone-700">
               Vyfoťte svého psího parťáka tak, aby na fotce vynikla jeho krása a osobnost. Fotku nám pošlete a sledujte naši facebookovou skupinu, kde budeme zveřejňovat další informace o hlasování a cenách.
             </p>
-            <Button className="mt-5" onClick={() => open("Fotosoutěž 2026 – moje fotka")}>
-              Poslat fotku e-mailem
+            <Button
+              className="mt-5"
+              onClick={() =>
+                open("Fotosoutěž 2026 – moje fotka", { attachment: true })
+              }
+            >
+              Nahrát a poslat fotku
             </Button>
           </Card>
           <img
