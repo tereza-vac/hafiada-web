@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import HomePage from "./pages/HomePage";
+import OnasPage from "./pages/OnasPage";
 import HarmonogramPage from "./pages/HarmonogramPage";
 import PravidlaPage from "./pages/PravidlaPage";
 import PropozicePage from "./pages/PropozicePage";
@@ -19,6 +20,7 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<HomePage />} />
+        <Route path="o-nas" element={<OnasPage />} />
         <Route path="harmonogram" element={<HarmonogramPage />} />
         <Route path="pravidla" element={<PravidlaPage />} />
         <Route path="propozice" element={<PropozicePage />} />

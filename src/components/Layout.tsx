@@ -20,6 +20,7 @@ const navItems: NavItem[] = [
   {
     label: "O nás",
     children: [
+      { label: "O nás", to: "/o-nas" },
       { label: "Fotogalerie", to: "/fotogalerie" },
       { label: "Naši sponzoři", to: "/sponzori" },
       { label: "Kontakt", to: "/kontakt" },
