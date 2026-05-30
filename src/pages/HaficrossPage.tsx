@@ -81,7 +81,7 @@ export default function HaficrossPage() {
         </ul>
         <div className="mx-auto mt-8 max-w-4xl">
           <Card className="bg-brand-50/60">
-            <PaymentDetails />
+            <PaymentDetails variant="haficross" />
           </Card>
         </div>
       </Section>

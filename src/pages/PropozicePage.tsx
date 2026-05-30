@@ -122,7 +122,10 @@ export default function PropozicePage() {
           </Card>
           <div className="space-y-4">
             <Card className="bg-brand-50/60">
-              <PaymentDetails />
+              <PaymentDetails variant="hafiada" />
+            </Card>
+            <Card className="bg-brand-50/60">
+              <PaymentDetails variant="haficross" />
             </Card>
             <Callout tone="info">
               <p>

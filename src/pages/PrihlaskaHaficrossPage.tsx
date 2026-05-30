@@ -40,7 +40,7 @@ export default function PrihlaskaHaficrossPage() {
             </Card>
             <div className="mt-4">
               <Card className="bg-brand-50/60">
-                <PaymentDetails />
+                <PaymentDetails variant="haficross" />
               </Card>
             </div>
             <div className="mt-4">

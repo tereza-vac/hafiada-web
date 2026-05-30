@@ -39,7 +39,7 @@ export default function PrihlaskaHafiadaPage() {
             </Card>
             <div className="mt-4">
               <Card className="bg-brand-50/60">
-                <PaymentDetails />
+                <PaymentDetails variant="hafiada" />
               </Card>
             </div>
             <div className="mt-4">

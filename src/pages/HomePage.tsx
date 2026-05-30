@@ -225,7 +225,7 @@ export default function HomePage() {
               Číslo účtu: <span className="font-bold">{event.account}</span> ({event.bank})
             </p>
             <div className="mt-4">
-              <PaymentQR />
+              <PaymentQR variant="hafiada" />
             </div>
           </Card>
 

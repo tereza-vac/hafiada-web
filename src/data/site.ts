@@ -23,23 +23,36 @@ export const event = {
 // MSG záměrně bez diakritiky kvůli kompatibilitě. Tento je pro dobrovolný dar (bez částky).
 export const qrPaymentString = `SPD*1.0*ACC:${event.iban}*CC:CZK*MSG:HAFIADA - podpora zviratkum v nouzi`;
 
-// Jediný zdroj pravdy pro platbu startovného – pokyny používej VŠUDE stejné.
+// Jediný zdroj pravdy pro platbu startovného. Pokyny vychází z původního webu.
+// Částka se záměrně do QR nedoplňuje – plátce ji zadá v bance podle pokynů.
 export const payment = {
   account: event.account,
   iban: event.iban,
   bank: event.bank,
-  amount: 300,
-  amountNextDog: 150,
-  amountOnSite: 500,
-  paymentDeadline: "24. 8. 2026",
-  instructions: [
-    "Startovné 300 Kč zaplaťte předem na účet (každý další pes 150 Kč, přihláška na místě 500 Kč).",
-    "Jako variabilní symbol (VS) uveďte telefonní číslo z přihlášky.",
-    "Do zprávy pro příjemce napište příjmení a jméno psovoda i psa.",
-    "Platba musí být připsána na účet nejpozději 24. 8. 2026.",
-    "Jedete Haficross i Hafiádu? Stačí jedna platba 300 Kč – vyplňte obě přihlášky a do zprávy napište „Haficross + Hafiáda“.",
-  ],
+  hafiada: {
+    title: "Platební údaje – Hafiáda",
+    instructions: [
+      "Startovné za prvního psa je 300 Kč, každý další pes stejného majitele 150 Kč.",
+      "Jako variabilní symbol (VS) uveďte telefonní číslo uvedené na přihlášce.",
+      "Do zprávy pro příjemce napište příjmení a jméno psovoda i psa.",
+      "Přihlašujete víc psů? Můžete zaplatit jednou platbou – do zprávy napište „platba za 2 (3, 4) psy“ a jejich jména.",
+      "Chcete jet i Haficross? Platí se jen jedna platba 300 Kč – vyplňte i přihlášku na Haficross a do zprávy napište „Haficross + Hafiáda“.",
+      "Přihláška na místě: 500 Kč za prvního psa, 300 Kč za každého dalšího.",
+    ],
+  },
+  haficross: {
+    title: "Platební údaje – Haficross",
+    instructions: [
+      "Startovné je 300 Kč, každý další pes stejného majitele 150 Kč.",
+      "Jako variabilní symbol (VS) uveďte telefonní číslo uvedené na přihlášce.",
+      "Do zprávy pro příjemce napište „Haficross“ a příjmení a jméno psovoda i psa.",
+      "Startovné musí být připsáno na účet nejpozději v sobotu 24. 8. 2026 ráno – na pozdější reklamace nebude brán zřetel.",
+      "Chcete jet i Hafiádu? Platí se jen jedna platba 300 Kč – vyplňte i přihlášku na Hafiádu a do zprávy napište „Haficross + Hafiáda“.",
+    ],
+  },
 };
+
+export type PaymentVariant = "hafiada" | "haficross";
 
 export type Organizer = {
   name: string;
