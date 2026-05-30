@@ -2,6 +2,7 @@ import { PageHero, Section, SectionTitle, Callout, Button } from "../components/
 import { CheckIcon, HeartIcon, RunIcon } from "../components/icons";
 import { event } from "../data/site";
 import { images } from "../data/images";
+import { useSeo } from "../hooks/useSeo";
 
 const rules = [
   "Závodník je starší 18 let. Mladší 18 let pouze v doprovodu dospělé osoby (15–18 let i s písemným souhlasem zákonných zástupců).",
@@ -15,6 +16,11 @@ const rules = [
 ];
 
 export default function HaficrossPage() {
+  useSeo({
+    title: "Haficross 2026",
+    description:
+      "Haficross o pohár starosty Bystřice – běh nebo procházka na trase ~6,8 km se psem. Startovné v plné výši pomáhá opuštěným zvířátkům.",
+  });
   return (
     <>
       <PageHero

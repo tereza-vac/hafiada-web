@@ -3,8 +3,14 @@ import { GoogleForm } from "../components/GoogleForm";
 import { CheckIcon } from "../components/icons";
 import { event, forms } from "../data/site";
 import { images } from "../data/images";
+import { useSeo } from "../hooks/useSeo";
 
 export default function PrihlaskaHaficrossPage() {
+  useSeo({
+    title: "Přihláška Haficross 2026",
+    description:
+      "Přihláška na Haficross 2026 – trasa ~6,8 km se psem. Startovné v plné výši pomáhá opuštěným zvířátkům.",
+  });
   return (
     <>
       <PageHero

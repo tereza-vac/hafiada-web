@@ -3,6 +3,7 @@ import { PageHero, Section, Card, Button, SectionTitle } from "../components/ui"
 import { MailIcon, PhoneIcon, PinIcon } from "../components/icons";
 import { contact, event } from "../data/site";
 import { images } from "../data/images";
+import { useSeo } from "../hooks/useSeo";
 
 function ContactForm() {
   const [name, setName] = useState("");
@@ -46,6 +47,11 @@ function ContactForm() {
 }
 
 export default function KontaktPage() {
+  useSeo({
+    title: "Kontakt",
+    description:
+      "Kontakt na organizátory Hafiády. Máte dotaz? Napište nám nebo zavolejte. Místo konání: Bystřice, areál před bazénem.",
+  });
   return (
     <>
       <PageHero

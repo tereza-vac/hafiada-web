@@ -1,7 +1,12 @@
 import { Button } from "../components/ui";
 import { PawIcon } from "../components/icons";
+import { useSeo } from "../hooks/useSeo";
 
 export default function NotFoundPage() {
+  useSeo({
+    title: "Stránka nenalezena",
+    description: "Tuhle stránku se nepodařilo najít.",
+  });
   return (
     <section className="container-page flex min-h-[60vh] flex-col items-center justify-center text-center">
       <span className="flex h-20 w-20 items-center justify-center rounded-3xl bg-brand-100 text-brand-600">

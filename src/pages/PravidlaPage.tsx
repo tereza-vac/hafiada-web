@@ -2,8 +2,14 @@ import { PageHero, Section, Callout, Card } from "../components/ui";
 import { CheckIcon } from "../components/icons";
 import { competitions } from "../data/content";
 import { images } from "../data/images";
+import { useSeo } from "../hooks/useSeo";
 
 export default function PravidlaPage() {
+  useSeo({
+    title: "Pravidla soutěží",
+    description:
+      "Pravidla všech disciplín na Hafiádě 2026 – poslušnost, VESTAJ, TOP čistokrevňák, freestyle, karneval, hafility, stezka nástrah a Grand Hafi.",
+  });
   return (
     <>
       <PageHero

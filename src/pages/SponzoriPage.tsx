@@ -2,8 +2,14 @@ import { PageHero, Section, Card, Button } from "../components/ui";
 import { HeartIcon, MailIcon } from "../components/icons";
 import { contact } from "../data/site";
 import { images } from "../data/images";
+import { useSeo } from "../hooks/useSeo";
 
 export default function SponzoriPage() {
+  useSeo({
+    title: "Naši sponzoři",
+    description:
+      "Děkujeme partnerům a sponzorům Hafiády za podporu. Chcete se stát sponzorem a pomoci zvířátkům v nouzi? Ozvěte se nám.",
+  });
   return (
     <>
       <PageHero

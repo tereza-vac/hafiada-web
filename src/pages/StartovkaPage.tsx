@@ -1,6 +1,7 @@
 import { PageHero, Section, Card, Callout, Button } from "../components/ui";
 import { CheckIcon } from "../components/icons";
 import { images } from "../data/images";
+import { useSeo } from "../hooks/useSeo";
 
 const info = [
   "Startovací okno bude otevřené od 8:00 do 9:00 hodin – přijít můžete kdykoliv v tuto dobu.",
@@ -11,6 +12,11 @@ const info = [
 ];
 
 export default function StartovkaPage() {
+  useSeo({
+    title: "Startovka Haficross",
+    description:
+      "Startovní listina Haficrossu a informace ke startu závodu na Hafiádě 2026.",
+  });
   return (
     <>
       <PageHero

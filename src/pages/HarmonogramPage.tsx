@@ -2,8 +2,14 @@ import { PageHero, Section, Callout } from "../components/ui";
 import { schedule } from "../data/content";
 import { images } from "../data/images";
 import { event } from "../data/site";
+import { useSeo } from "../hooks/useSeo";
 
 export default function HarmonogramPage() {
+  useSeo({
+    title: "Harmonogram",
+    description:
+      "Orientační program Hafiády 2026 – prezence, soutěže v poslušnosti, freestyle, výstavy krásy, hafility, karneval a vyhlášení vítězů.",
+  });
   return (
     <>
       <PageHero

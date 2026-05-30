@@ -1,7 +1,13 @@
 import { PageHero, Section } from "../components/ui";
 import { galleryImages, images } from "../data/images";
+import { useSeo } from "../hooks/useSeo";
 
 export default function FotogaleriePage() {
+  useSeo({
+    title: "Fotogalerie",
+    description:
+      "Fotky a atmosféra Hafiády – psí radost, soutěže a skvělá společnost milovníků psů.",
+  });
   return (
     <>
       <PageHero

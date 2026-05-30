@@ -12,6 +12,7 @@ import {
 } from "../components/icons";
 import { event, photoContest } from "../data/site";
 import { images } from "../data/images";
+import { useSeo } from "../hooks/useSeo";
 
 function Countdownish() {
   const facts = [
@@ -40,6 +41,12 @@ function Countdownish() {
 }
 
 export default function HomePage() {
+  useSeo({
+    title: "Hafiáda 2026 – setkání milovníků všech psů",
+    description:
+      "Zábavný den pro celou rodinu se psy. Hafiáda 2026 se koná v neděli 30. 8. 2026 od 8:00 v areálu před bazénem v Bystřici. Soutěže, Haficross a pomoc zvířátkům v nouzi.",
+    path: "/",
+  });
   return (
     <>
       {/* HERO */}

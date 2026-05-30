@@ -2,6 +2,7 @@ import { PageHero, Section, SectionTitle, Card, Callout } from "../components/ui
 import { CheckIcon, PinIcon } from "../components/icons";
 import { event } from "../data/site";
 import { images } from "../data/images";
+import { useSeo } from "../hooks/useSeo";
 
 const arrival = [
   "Evidence přihlášených psů mezi 7:30 – 8:30 hod.",
@@ -22,6 +23,11 @@ const extra = [
 ];
 
 export default function PropozicePage() {
+  useSeo({
+    title: "Propozice",
+    description:
+      "Jak se dostat na Hafiádu 2026, co vás čeká po příjezdu, startovné a platební údaje. Areál před bazénem v Bystřici.",
+  });
   return (
     <>
       <PageHero

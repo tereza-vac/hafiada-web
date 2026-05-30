@@ -3,8 +3,14 @@ import { GoogleForm } from "../components/GoogleForm";
 import { CheckIcon } from "../components/icons";
 import { event, forms } from "../data/site";
 import { images } from "../data/images";
+import { useSeo } from "../hooks/useSeo";
 
 export default function PrihlaskaHafiadaPage() {
+  useSeo({
+    title: "Přihláška Hafiáda 2026",
+    description:
+      "Přihlaste se na Hafiádu 2026 – zábavný den se psy. Uzávěrka přihlášek je 18. 8. 2026.",
+  });
   return (
     <>
       <PageHero

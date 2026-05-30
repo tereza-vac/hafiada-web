@@ -2,8 +2,14 @@ import { PageHero, Section, Card, Button } from "../components/ui";
 import { CameraIcon, HeartIcon } from "../components/icons";
 import { contact, photoContest } from "../data/site";
 import { images } from "../data/images";
+import { useSeo } from "../hooks/useSeo";
 
 export default function FotosoutezPage() {
+  useSeo({
+    title: "Fotosoutěž 2026",
+    description:
+      "Fotosoutěž Hafiády 2026 na téma „Můj pes je nejkrásnější\". Pošlete fotku svého psího parťáka a zapojte se.",
+  });
   return (
     <>
       <PageHero
