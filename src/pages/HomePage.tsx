@@ -13,6 +13,7 @@ import {
 import { event, photoContest } from "../data/site";
 import { images } from "../data/images";
 import { PaymentQR } from "../components/Payment";
+import { Reveal } from "../components/Reveal";
 import { useSeo } from "../hooks/useSeo";
 
 function Countdownish() {
@@ -30,32 +31,34 @@ function Countdownish() {
   ];
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {facts.map((f) => (
-        <Card key={f.label} className="flex items-center gap-4">
-          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-100 text-brand-600">
-            <f.icon className="h-6 w-6" />
-          </span>
-          <div>
-            <p className="text-xs font-bold uppercase tracking-wider text-stone-400">
-              {f.label}
-            </p>
-            <p className="font-display text-lg font-bold leading-snug text-ink">
-              {f.value}
-            </p>
-            {f.sub && <p className="mt-0.5 text-sm text-stone-500">{f.sub}</p>}
-            {f.link && (
-              <a
-                href={f.link.href}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-1 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-700"
-              >
-                {f.link.label}
-                <span aria-hidden>→</span>
-              </a>
-            )}
-          </div>
-        </Card>
+      {facts.map((f, i) => (
+        <Reveal key={f.label} delay={i * 90}>
+          <Card className="group flex h-full items-center gap-4">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-100 text-brand-600 transition group-hover:scale-110 group-hover:bg-brand-200">
+              <f.icon className="h-6 w-6" />
+            </span>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-stone-400">
+                {f.label}
+              </p>
+              <p className="font-display text-lg font-bold leading-snug text-ink">
+                {f.value}
+              </p>
+              {f.sub && <p className="mt-0.5 text-sm text-stone-500">{f.sub}</p>}
+              {f.link && (
+                <a
+                  href={f.link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-1 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-700"
+                >
+                  {f.link.label}
+                  <span aria-hidden>→</span>
+                </a>
+              )}
+            </div>
+          </Card>
+        </Reveal>
       ))}
     </div>
   );
@@ -75,12 +78,20 @@ export default function HomePage() {
         <img
           src={images.hero}
           alt="Šťastní psi na louce"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover animate-ken-burns"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-brand-900/85 via-brand-800/75 to-brand-600/55" />
+        <PawIcon
+          className="pointer-events-none absolute right-[8%] top-[18%] hidden h-16 w-16 text-white/10 animate-float md:block"
+          style={{ ["--rot" as string]: "18deg" }}
+        />
+        <PawIcon
+          className="pointer-events-none absolute right-[22%] top-[55%] hidden h-10 w-10 text-white/10 animate-float lg:block"
+          style={{ ["--rot" as string]: "-12deg", animationDelay: "1.2s" }}
+        />
         <div className="container-page relative grid min-h-[78vh] items-center py-20">
           <div className="max-w-2xl">
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3 animate-fade-up">
               <p className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-semibold backdrop-blur">
                 <PawIcon className="h-4 w-4" /> Bez rasových předsudků
               </p>
@@ -88,13 +99,22 @@ export default function HomePage() {
                 <CalendarIcon className="h-4 w-4" /> {event.date}
               </p>
             </div>
-            <h1 className="mt-5 text-4xl font-extrabold leading-tight sm:text-6xl">
+            <h1
+              className="mt-5 text-4xl font-extrabold leading-tight sm:text-6xl animate-fade-up"
+              style={{ animationDelay: "0.1s" }}
+            >
               Zábavný den pro celou rodinu se psy
             </h1>
-            <p className="mt-5 text-lg text-brand-50/90 sm:text-xl">
+            <p
+              className="mt-5 text-lg text-brand-50/90 sm:text-xl animate-fade-up"
+              style={{ animationDelay: "0.2s" }}
+            >
               Hafiáda {event.year} je na cestě! Těšíme se na vás {event.dateWhen} od {event.startTime} v areálu před bazénem v Bystřici. Soutěže, Haficross a hlavně dobrá společnost.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div
+              className="mt-8 flex flex-wrap gap-3 animate-fade-up"
+              style={{ animationDelay: "0.3s" }}
+            >
               <Button to="/prihlaska-hafiada">
                 <PawIcon className="h-5 w-5" /> Přihlásit se na Hafiádu
               </Button>
@@ -128,17 +148,19 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-          <div className="relative">
-            <img
-              src={images.group}
-              alt="Skupina psů"
-              className="aspect-[4/3] w-full rounded-3xl object-cover shadow-lg"
-            />
-            <div className="absolute -bottom-5 -left-5 hidden rounded-2xl bg-brand-500 px-5 py-4 text-white shadow-lg sm:block">
+          <Reveal delay={120} className="relative">
+            <div className="group overflow-hidden rounded-3xl shadow-lg">
+              <img
+                src={images.group}
+                alt="Skupina psů"
+                className="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-105"
+              />
+            </div>
+            <div className="absolute -bottom-5 -left-5 hidden rounded-2xl bg-brand-500 px-5 py-4 text-white shadow-lg sm:block animate-float">
               <p className="font-display text-2xl font-extrabold">8:00</p>
               <p className="text-sm text-brand-50">začínáme</p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </Section>
 
@@ -186,37 +208,39 @@ export default function HomePage() {
               to: "/fotosoutez",
               cta: "Fotosoutěž 2026",
             },
-          ].map((h) => (
-            <Card key={h.title} className="flex flex-col">
-              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-100 text-brand-600">
-                <h.icon className="h-7 w-7" />
-              </span>
-              <h3 className="mt-4 text-xl font-bold">{h.title}</h3>
-              <p className="mt-2 flex-1 text-stone-600">{h.text}</p>
-              <Link
-                to={h.to}
-                className="mt-4 inline-flex items-center gap-1 font-semibold text-brand-600 hover:text-brand-700"
-              >
-                {h.cta} →
-              </Link>
-            </Card>
+          ].map((h, i) => (
+            <Reveal key={h.title} delay={i * 110} className="h-full">
+              <Card className="group flex h-full flex-col">
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-100 text-brand-600 transition duration-300 group-hover:scale-110 group-hover:bg-brand-200">
+                  <h.icon className="h-7 w-7" />
+                </span>
+                <h3 className="mt-4 text-xl font-bold">{h.title}</h3>
+                <p className="mt-2 flex-1 text-stone-600">{h.text}</p>
+                <Link
+                  to={h.to}
+                  className="mt-4 inline-flex items-center gap-1 font-semibold text-brand-600 transition hover:gap-2 hover:text-brand-700"
+                >
+                  {h.cta} <span aria-hidden>→</span>
+                </Link>
+              </Card>
+            </Reveal>
           ))}
         </div>
       </Section>
 
       {/* CHARITY BANNER */}
       <section className="relative overflow-hidden">
-        <img src={images.charity} alt="Pes v útulku" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={images.charity} alt="Pes v útulku" className="absolute inset-0 h-full w-full object-cover animate-ken-burns" />
         <div className="absolute inset-0 bg-teal-800/80" />
-        <div className="container-page relative py-16 text-center text-white">
-          <HeartIcon className="mx-auto h-12 w-12 text-teal-200" />
+        <Reveal className="container-page relative py-16 text-center text-white">
+          <HeartIcon className="mx-auto h-12 w-12 text-teal-200 animate-float" />
           <h2 className="mt-4 font-display text-3xl font-extrabold sm:text-4xl">
             Pomáháme zvířátkům v nouzi
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-lg text-teal-50">
             I když nemáte pejska nebo s ním závodit nechcete, přijďte se podívat! Vstupné je čistě dobrovolné a celé putuje na pomoc zvířátkům v nouzi. Každým darem přispějete na dobrou věc.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       {/* PRICE + CTA */}

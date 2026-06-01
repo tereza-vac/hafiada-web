@@ -50,9 +50,9 @@ const navItems: NavItem[] = [
 
 function Logo() {
   return (
-    <Link to="/" className="flex items-center gap-2.5">
-      <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-500 text-white shadow-sm">
-        <PawIcon className="h-6 w-6" />
+    <Link to="/" className="group flex items-center gap-2.5">
+      <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-500 text-white shadow-sm transition group-hover:scale-105 group-hover:bg-brand-600">
+        <PawIcon className="h-6 w-6 group-hover:animate-wag" />
       </span>
       <span className="leading-tight">
         <span className="block font-display text-xl font-extrabold text-brand-700">
@@ -74,7 +74,7 @@ function DesktopNav() {
           <div key={item.label} className="group relative">
             <button className="flex items-center gap-1 rounded-full px-3.5 py-2 text-[15px] font-semibold text-stone-700 transition hover:bg-brand-50 hover:text-brand-700">
               {item.label}
-              <svg viewBox="0 0 20 20" className="h-4 w-4" fill="currentColor">
+              <svg viewBox="0 0 20 20" className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" fill="currentColor">
                 <path d="M5.5 7.5 10 12l4.5-4.5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
               </svg>
             </button>

@@ -21,22 +21,30 @@ export function PageHero({
         <img
           src={image}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover opacity-25"
+          className="absolute inset-0 h-full w-full object-cover opacity-25 animate-ken-burns"
         />
       )}
       <div className="absolute inset-0 bg-gradient-to-br from-brand-800/80 via-brand-700/70 to-brand-600/60" />
       <div className="container-page relative py-16 sm:py-20">
         {eyebrow && (
-          <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-semibold uppercase tracking-wide backdrop-blur">
+          <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-semibold uppercase tracking-wide backdrop-blur animate-fade-up">
             <PawIcon className="h-4 w-4" />
             {eyebrow}
           </p>
         )}
-        <h1 className="max-w-3xl text-4xl font-extrabold leading-tight sm:text-5xl">
+        <h1
+          className="max-w-3xl text-4xl font-extrabold leading-tight sm:text-5xl animate-fade-up"
+          style={{ animationDelay: "0.08s" }}
+        >
           {title}
         </h1>
         {subtitle && (
-          <p className="mt-4 max-w-2xl text-lg text-brand-50/90">{subtitle}</p>
+          <p
+            className="mt-4 max-w-2xl text-lg text-brand-50/90 animate-fade-up"
+            style={{ animationDelay: "0.16s" }}
+          >
+            {subtitle}
+          </p>
         )}
       </div>
     </header>
@@ -73,7 +81,7 @@ export function SectionTitle({
       )}
       <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">{title}</h2>
       <div
-        className={`mt-4 h-1.5 w-20 rounded-full bg-brand-400 ${
+        className={`mt-4 h-1.5 w-20 rounded-full bg-brand-400 animate-grow-line ${
           align === "center" ? "mx-auto" : ""
         }`}
       />
@@ -84,7 +92,7 @@ export function SectionTitle({
 export function Card({ children, className = "" }: WithChildren) {
   return (
     <div
-      className={`rounded-3xl border border-brand-100 bg-white p-6 shadow-sm transition hover:shadow-md ${className}`}
+      className={`rounded-3xl border border-brand-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-xl ${className}`}
     >
       {children}
     </div>
@@ -120,7 +128,7 @@ export function Button({
   disabled,
   onClick,
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-bold transition focus:outline-none focus-visible:ring-4 disabled:opacity-60 ${buttonStyles[variant]} ${className}`;
+  const classes = `inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-bold transition duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus:outline-none focus-visible:ring-4 disabled:opacity-60 disabled:hover:translate-y-0 ${buttonStyles[variant]} ${className}`;
 
   if (to) {
     return (
