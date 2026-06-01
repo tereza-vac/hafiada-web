@@ -78,6 +78,60 @@ export default function OnasPage() {
       </Section>
 
       <Section muted>
+        <div className="mx-auto max-w-3xl">
+          <p className="text-sm font-bold uppercase tracking-wider text-brand-600">
+            Od roku 2012
+          </p>
+          <h2 className="mt-2 font-display text-3xl font-bold">Historie projektu</h2>
+          <div className="mt-5 space-y-4 text-[17px] leading-relaxed text-stone-700">
+            <p>
+              První Hafiáda se konala již v roce 2012 pod taktovkou paní Evy
+              Matlochové, která je rovněž její zakladatelkou, a jejího věrného
+              spoluorganizačního kolektivu.
+            </p>
+            <p>
+              Paní Eva je celoživotní milovnicí pejsků, která se rozhodla pro
+              podobné nadšence uspořádat akci, kde by se mohli všichni sejít a
+              vzájemně se podělit o dovednosti i krásu svých čtyřnohých přátel.
+            </p>
+          </div>
+
+          <Card className="mt-6 border-l-4 border-brand-400 bg-white">
+            <div className="flex items-start gap-3">
+              <HeartIcon className="mt-1 h-6 w-6 shrink-0 text-brand-500" />
+              <div className="space-y-3 text-stone-700">
+                <p>
+                  Získané peněžní výtěžky z akce putují na dobročinné účely.
+                  V minulých ročnících byly předány například:
+                </p>
+                <ul className="ml-1 space-y-1.5">
+                  {[
+                    "Městský útulek pro psy Třinec",
+                    "Moravskoslezský spolek na ochranu zvířat",
+                    "Mazlíci v nouzi",
+                    "Canisterapeutický pejsek paní Mileny Georgové",
+                    "Děvčata starající se o staré pejsky v Třinci na Osůvkách",
+                    "Čtyřlístek pro hafany",
+                    "Spolek na ochranu koček a psů Jablunkovsko",
+                  ].map((b) => (
+                    <li key={b} className="flex items-start gap-2">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-400" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p>
+                  I v letošním ročníku zcela určitě najdeme vhodného kandidáta,
+                  který si za svou péči o opuštěné pejsky zaslouží dárek od nás
+                  všech.
+                </p>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </Section>
+
+      <Section>
         <div className="grid gap-6 md:grid-cols-3">
           {values.map((v) => (
             <Card key={v.title} className="flex flex-col">
