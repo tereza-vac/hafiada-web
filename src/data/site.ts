@@ -118,10 +118,11 @@ export const photoContest = {
   address: "Renata Bieleszová, Slezská 739, 739 61 Třinec",
 };
 
-export type Sponsor = { name: string; logo: string; url?: string };
+export type Sponsor = { name: string; logo: string; url?: string; featured?: boolean };
 
 // Sponzoři převzatí z původního webu. Doplň/uprav názvy a přidej odkazy (url).
 export const sponsors: Sponsor[] = [
+  { name: "JK ANIMALS", logo: sponsorLogos.jkanimals, url: "https://www.jkanimals.cz/", featured: true },
   { name: "Obec Bystřice", logo: sponsorLogos.bystrice, url: "https://www.bystrice.cz/" },
   { name: "Karireal", logo: sponsorLogos.karireal, url: "https://www.karireal.cz/" },
   { name: "ZM Servis Moravia", logo: sponsorLogos.zmservis, url: "https://www.zmservis-moravia.cz/" },

@@ -29,4 +29,5 @@ export const sponsorLogos = {
   cannrest: asset("images/sponsors/s6.png"),
   karireal: asset("images/sponsors/karireal.svg"),
   zmservis: asset("images/sponsors/zmservis.png"),
+  jkanimals: asset("images/sponsors/jkanimals.svg"),
 };

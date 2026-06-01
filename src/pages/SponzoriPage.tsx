@@ -31,8 +31,35 @@ export default function SponzoriPage() {
           </p>
         </div>
 
+        {sponsors
+          .filter((s) => s.featured)
+          .map((s) => (
+            <div key={s.name} className="mt-10">
+              <p className="text-center text-sm font-bold uppercase tracking-wider text-brand-600">
+                Generální sponzor
+              </p>
+              <a
+                href={s.url}
+                target="_blank"
+                rel="noreferrer"
+                className="mx-auto mt-3 flex max-w-md flex-col items-center rounded-3xl border-2 border-brand-200 bg-white p-8 shadow-sm transition hover:opacity-80"
+              >
+                <img
+                  src={s.logo}
+                  alt={s.name}
+                  className="max-h-28 w-auto object-contain"
+                />
+                <span className="mt-4 text-center font-display text-lg font-bold text-stone-700">
+                  {s.name}
+                </span>
+              </a>
+            </div>
+          ))}
+
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {sponsors.map((s) => {
+          {sponsors
+            .filter((s) => !s.featured)
+            .map((s) => {
             const inner = (
               <>
                 <img

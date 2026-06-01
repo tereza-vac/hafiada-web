@@ -107,9 +107,9 @@ export default function PropozicePage() {
             <ul className="space-y-3">
               {[
                 ["Hafiáda – první pes (předem)", "300 Kč"],
-                ["Každý další pes stejného majitele", "150 Kč"],
                 ["Haficross – první pes (předem)", "300 Kč"],
-                ["Haficross – každý další pes", "150 Kč"],
+                ["Hafiáda i Haficross dohromady", "jen 1× 300 Kč"],
+                ["Každý další pes stejného majitele", "150 Kč"],
                 ["Přihláška na místě (Hafiáda i Haficross)", "500 Kč"],
                 ["Další pes na místě", "300 Kč"],
               ].map(([k, v]) => (
@@ -127,6 +127,12 @@ export default function PropozicePage() {
             <Card className="bg-brand-50/60">
               <PaymentDetails variant="haficross" />
             </Card>
+            <Callout tone="info">
+              <p className="font-bold">Chcete jet Hafiádu i Haficross?</p>
+              <p>
+                Pokud se chcete zúčastnit Hafiády i Haficrossu jako zábavného dne, platíte jen jednou 300 Kč. Vyplňte ale dvě přihlášky (zvlášť Hafiáda, zvlášť Haficross) a do poznámky platby napište „Haficross + Hafiáda“.
+              </p>
+            </Callout>
             <Callout tone="info">
               <p>
                 Uzávěrka přihlášek je {event.applicationDeadline}. Počet startujících psů je omezen kapacitou areálu – bez včasné přihlášky se nemusí podařit zúčastnit soutěží.
