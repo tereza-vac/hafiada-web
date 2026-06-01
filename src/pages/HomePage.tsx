@@ -17,9 +17,14 @@ import { useSeo } from "../hooks/useSeo";
 
 function Countdownish() {
   const facts = [
-    { icon: CalendarIcon, label: "Kdy", value: event.dateLong },
+    { icon: CalendarIcon, label: "Kdy", value: event.dateWhen },
     { icon: ClockIcon, label: "Začátek", value: `${event.startTime} dopoledne` },
-    { icon: PinIcon, label: "Kde", value: `${event.place}, ${event.placeShort}` },
+    {
+      icon: PinIcon,
+      label: "Kde",
+      value: event.place,
+      sub: `${event.placeShort} · ${event.district}`,
+    },
     { icon: PawIcon, label: "Přihlášky do", value: event.applicationDeadline },
   ];
   return (
@@ -33,7 +38,10 @@ function Countdownish() {
             <p className="text-xs font-bold uppercase tracking-wider text-stone-400">
               {f.label}
             </p>
-            <p className="font-display text-lg font-bold text-ink">{f.value}</p>
+            <p className="font-display text-lg font-bold leading-snug text-ink">
+              {f.value}
+            </p>
+            {f.sub && <p className="mt-0.5 text-sm text-stone-500">{f.sub}</p>}
           </div>
         </Card>
       ))}
@@ -72,7 +80,7 @@ export default function HomePage() {
               Zábavný den pro celou rodinu se psy
             </h1>
             <p className="mt-5 text-lg text-brand-50/90 sm:text-xl">
-              Hafiáda {event.year} je na cestě! Těšíme se na vás v {event.dateLong} od {event.startTime} v areálu před bazénem v Bystřici. Soutěže, Haficross a hlavně dobrá společnost.
+              Hafiáda {event.year} je na cestě! Těšíme se na vás {event.dateWhen} od {event.startTime} v areálu před bazénem v Bystřici. Soutěže, Haficross a hlavně dobrá společnost.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button to="/prihlaska-hafiada">
@@ -98,7 +106,7 @@ export default function HomePage() {
             <SectionTitle eyebrow="Hafiáda 2026 vás vítá" title="Den v dobré společnosti s vaším chlupáčem" />
             <div className="space-y-4 text-[17px] leading-relaxed text-stone-700">
               <p>
-                Zdravíme všechny pejskaře! Letos se na vás těšíme v {event.dateLong} v areálu ZŠ Bystřice (před bazénem), a to od {event.startTime} dopoledne. Přihlášky prosím posílejte do {event.applicationDeadline}.
+                Zdravíme všechny pejskaře! Letos se na vás těšíme {event.dateWhen} v areálu ZŠ Bystřice (před bazénem), a to od {event.startTime} dopoledne. Přihlášky prosím posílejte do {event.applicationDeadline}.
               </p>
               <p>
                 Pro ty, kdo na Hafiádě ještě nebyli a jsou z daleka – naše Bystřice je v okrese Frýdek-Místek, pouhých 6 km od ocelářského města Třinec. Areál před bazénem je téměř v centru obce a všude budou šipky a směrovky.

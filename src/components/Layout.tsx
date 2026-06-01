@@ -214,7 +214,7 @@ function Footer() {
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex items-start gap-2">
               <PinIcon className="mt-0.5 h-5 w-5 text-brand-400" />
-              <span>{event.place}, {event.placeShort}</span>
+              <span>{event.place}, {event.district}</span>
             </li>
             <li className="flex items-start gap-2">
               <PawIcon className="mt-0.5 h-5 w-5 text-brand-400" />

@@ -41,7 +41,13 @@ export default function KontaktPage() {
                 </li>
                 <li className="flex items-start gap-3">
                   <PinIcon className="mt-0.5 h-5 w-5 text-brand-600" />
-                  <span className="text-stone-700">{event.place}, {event.placeShort}</span>
+                  <span className="text-stone-700">
+                    {event.place}
+                    <br />
+                    <span className="text-sm text-stone-500">
+                      {event.placeShort}, {event.district}
+                    </span>
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-0.5 font-bold text-brand-600">č.ú.</span>
