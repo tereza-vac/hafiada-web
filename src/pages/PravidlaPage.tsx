@@ -59,6 +59,24 @@ export default function PravidlaPage() {
                   ))}
                 </ul>
               )}
+              {c.sections?.map((s) => (
+                <div key={s.heading} className="mt-5">
+                  <h3 className="font-display text-lg font-bold text-ink">
+                    {s.heading}
+                  </h3>
+                  {s.text && <p className="mt-1 text-stone-700">{s.text}</p>}
+                  {s.items && (
+                    <ul className="mt-2 space-y-2">
+                      {s.items.map((it) => (
+                        <li key={it} className="flex items-start gap-2 text-stone-700">
+                          <CheckIcon className="mt-1 h-4 w-4 shrink-0 text-brand-600" />
+                          <span>{it}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
             </Card>
           ))}
         </div>

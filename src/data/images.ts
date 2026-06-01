@@ -25,6 +25,8 @@ export const sponsorLogos = {
   bystrice: asset("images/sponsors/s2.jpg"),
   nnt: asset("images/sponsors/s3.png"),
   rosigrafik: asset("images/sponsors/s4.jpg"),
-  szturc: asset("images/sponsors/s5.jpg"),
+  szturc: asset("images/sponsors/szturc.png"),
   cannrest: asset("images/sponsors/s6.png"),
+  karireal: asset("images/sponsors/karireal.svg"),
+  zmservis: asset("images/sponsors/zmservis.png"),
 };

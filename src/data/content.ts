@@ -1,8 +1,15 @@
+export type DetailSection = {
+  heading: string;
+  text?: string;
+  items?: string[];
+};
+
 export type Competition = {
   title: string;
   paragraphs: string[];
   categories?: string[];
   note?: string;
+  sections?: DetailSection[];
 };
 
 export const competitions: Competition[] = [
@@ -10,13 +17,76 @@ export const competitions: Competition[] = [
     title: "Poslušnost – Nejlepší mladý cvičitel",
     paragraphs: [
       "Tato disciplína je určena pro začínající psovody, je cílená především na děti. Má za cíl předvést, jak dítě s pejskem pracuje, jaký mají vzájemný vztah a jaká je mezi psem a dítětem vzájemná souhra.",
+      "Soutěží se ve dvou věkových kategoriích mladých psovodů.",
     ],
+    categories: ["6–10 let", "11–15 let"],
     note: "Horní hranice věku cvičitele je 15 let. Kdo se hlásí do soutěže v poslušnosti, NEMŮŽE současně soutěžit ve freestyle.",
+    sections: [
+      {
+        heading: "Podmínky účasti",
+        items: [
+          "Každý řádně přihlášený účastník je povinen se seznámit s podmínkami účasti i samotné soutěže uveřejněnými zde v propozicích.",
+          "V den soutěže musí být pes v dobrém zdravotním stavu. Vyloučeni jsou psi nemocní, zranění, feny v druhé polovině březosti, feny kojící, feny do 1 měsíce po porodu a feny hárající.",
+          "V každé kategorii je posuzováno maximálně 15 týmů.",
+          "Povolen je hladký nestahovací kožený nebo látkový obojek nebo obyčejný nestahovací řetízkový obojek – pes ho musí mít na krku volně. Ostnatý obojek, flexi vodítko, postroj, ohlávka (halti) ani elektrický obojek nejsou povoleny.",
+          "Povel je možné opakovat 3×. Povoleny jsou povely ústní, posunky nebo obojí současně. Pozor – nadbytečné opakování povelů snižuje hodnocení!",
+          "Odměňovat psa pamlskem, hračkou apod. je možné až po ukončení cviku, ne v jeho průběhu.",
+        ],
+      },
+      {
+        heading: "Hodnocené dovednosti – kategorie 6–10 let",
+        items: [
+          "Chůze u nohy – pes na vodítku, s obraty za pochodu (trasa bude naznačena a slovně povelována rozhodčím).",
+          "Sedni – pes na vodítku, u nohy nebo před psovodem podle vlastní volby.",
+          "Lehni – pes na vodítku, u nohy nebo před psovodem podle vlastní volby.",
+          "Přivolání psa ze vzdálenosti alespoň 5 m (z bezpečnostních důvodů bude pes na stopovacím vodítku, můžeme zapůjčit).",
+          "Volitelný cvik (např. Dej pac, Válej sudy, Štěkej apod.).",
+        ],
+      },
+      {
+        heading: "Hodnocené dovednosti – kategorie 11–15 let",
+        items: [
+          "Chůze u nohy – pes na vodítku, s obraty za pochodu (trasa bude naznačena, mírně náročnější, a slovně povelována rozhodčím).",
+          "Sedni – pes na vodítku, u nohy.",
+          "Lehni – pes na vodítku, u nohy.",
+          "Přivolání psa upoutaného na stopovacím vodítku ze vzdálenosti alespoň 5 m.",
+          "Odložení psa na místě v libovolné poloze po dobu 30 sekund s odchodem psovoda od psa do vzdálenosti 5 kroků.",
+        ],
+      },
+      {
+        heading: "Vyhodnocení",
+        text: "Po poradě rozhodčích se oceňuje prvních 5 týmů. Výkon se hodnotí po 2 bodech sestupně od 10 bodů za 1. místo podle pořadí (10, 8, 6, 4, 2).",
+      },
+    ],
   },
   {
     title: "Mladý vystavovatel – juniorhandling",
-    paragraphs: ["Bude se soutěžit ve 2 kategoriích:"],
+    paragraphs: [
+      "Junior handling je o tom, jak dítě svého psa předvede – ne o kráse psa, ale o souhře, klidu a šikovnosti malého vystavovatele. Soutěží se ve dvou věkových kategoriích.",
+    ],
     categories: ["6–10 let věku psovoda", "11–15 let věku psovoda"],
+    sections: [
+      {
+        heading: "Co se hodnotí",
+        items: [
+          "Vztah se psem (klid, spolupráce, důvěra).",
+          "Předvedení psa (pohyb, tempo, postoj).",
+          "Vzhled handlera (čisté, vhodné oblečení).",
+          "Technika (vodítko, ukázání zubů, vystavení psa).",
+        ],
+      },
+      {
+        heading: "Pro nejmenší – je to jako hra 🐾",
+        text: "Ukazuješ svého pejska, jak je krásný a šikovný. A co máš dělat?",
+        items: [
+          "🐶 Pejsek jde vedle tebe – drž vodítko hezky jemně, pejsek má jít vedle nohy, ne tě tahat.",
+          "🚶 Chodíš dokola v kruhu – jdi nebo běž plynule, nekoukej na zem, koukej před sebe.",
+          "🧍 Zastavíš a postavíš pejska – má stát rovně jako socha, nožičky hezky srovnat.",
+          "😊 Usmívej se a buď v klidu – jako byste si spolu hráli; když uděláš chybu, nic se neděje.",
+          "👀 Poslouchej pana rozhodčího – řekne ti, kam jít (tam a zpátky, do kruhu…), ty jen uděláš, co chce.",
+        ],
+      },
+    ],
   },
   {
     title: "VESTAJ – Nejvoříškovatější voříšek",
@@ -86,14 +156,25 @@ export const competitions: Competition[] = [
   {
     title: "GRAND HAFI",
     paragraphs: [
-      "Vítězem se stane pes, který nasbírá za celou dobu Hafiády nejvíce bodů. V každé soutěži (kromě poslušnosti) bude bodováno prvních 5 míst. Neváhejte a zúčastněte se co největšího počtu soutěží – ceny budou stát za to!",
+      "Vítězem se stane pes, který nasbírá za celou dobu Hafiády nejvíce bodů. V každé soutěži bude bodováno prvních 5 míst. Neváhejte a zúčastněte se co největšího počtu soutěží – ceny budou stát za to!",
     ],
   },
   {
-    title: "Soutěž pro děti v kreslení psa",
+    title: "Dětský koutek",
     paragraphs: [
-      "Tato soutěž probíhá po celou dobu Hafiády. Děti budou mít k dispozici výkresy různého formátu, pastelky, tempery, vodové barvy i štětce. Dítě musí obrázek nakreslit vlastnoručně, bez předlohy.",
-      "Hodnotit obrázky bude odborná porota – hodnotí se pouze obrázky vzniklé na místě. Donesené obrázky bude možné vystavit v galerii v areálu parku.",
+      "Po celou dobu Hafiády bude pro děti připravený dětský koutek plný zábavy – různé hry, omalovánky, malování na obličej i velká skákací atrakce. Prostě TOP zábava pro děti.",
+      "Součástí koutku je i soutěž v kreslení psa, která probíhá po celou dobu Hafiády.",
+    ],
+    sections: [
+      {
+        heading: "Soutěž v kreslení psa",
+        items: [
+          "Děti mají k dispozici výkresy různého formátu, pastelky, tempery, vodové barvy i štětce.",
+          "Obrázek musí dítě nakreslit vlastnoručně, bez předlohy.",
+          "Hodnotit obrázky bude odborná porota – hodnotí se pouze obrázky vzniklé na místě.",
+          "Donesené obrázky bude možné vystavit v galerii v areálu parku.",
+        ],
+      },
     ],
   },
 ];

@@ -9,8 +9,8 @@ export const event = {
   date: "30. 8. 2026",
   dateLong: "neděle 30. srpna 2026",
   startTime: "8:00",
-  place: "Areál před bazénem, ZŠ Bystřice",
-  placeShort: "Bystřice",
+  place: "Areál před bazénem, ZŠ Bystřice (okres Frýdek-Místek)",
+  placeShort: "Bystřice u Třince (okres Frýdek-Místek)",
   applicationDeadline: "18. 8. 2026",
   gps: "49.6393886N, 18.7220669E",
   navAddress: "Bystřice 848",
@@ -111,7 +111,9 @@ export const forms: Record<"hafiada" | "haficross", FormConfig> = {
 
 export const photoContest = {
   year: 2026,
-  theme: "♡ Můj pes je nejkrásnější ♡",
+  theme: "Můj pes je ten nejkrásnější",
+  deadline: "20. 8. 2026",
+  address: "Renata Bieleszová, Slezská 739, 739 61 Třinec",
 };
 
 export type Sponsor = { name: string; logo: string; url?: string };
@@ -119,6 +121,8 @@ export type Sponsor = { name: string; logo: string; url?: string };
 // Sponzoři převzatí z původního webu. Doplň/uprav názvy a přidej odkazy (url).
 export const sponsors: Sponsor[] = [
   { name: "Obec Bystřice", logo: sponsorLogos.bystrice, url: "https://www.bystrice.cz/" },
+  { name: "Karireal", logo: sponsorLogos.karireal, url: "https://www.karireal.cz/" },
+  { name: "ZM Servis Moravia", logo: sponsorLogos.zmservis },
   { name: "A8 Reklama", logo: sponsorLogos.a8 },
   { name: "NNT Products", logo: sponsorLogos.nnt },
   { name: "Rosigrafik – grafika & design", logo: sponsorLogos.rosigrafik },
