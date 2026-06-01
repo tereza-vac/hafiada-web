@@ -3,24 +3,32 @@ import { Button } from "./ui";
 import { CheckIcon, MailIcon } from "./icons";
 import { contact } from "../data/site";
 
-// FormSubmit.co – odesílání bez vlastního serveru. Zprávy chodí na contact.email.
-// POZOR: při úplně prvním odeslání přijde do schránky aktivační e-mail –
-// stačí jednou kliknout na potvrzovací odkaz a pak už zprávy chodí samy.
-const AJAX_ENDPOINT = `https://formsubmit.co/ajax/${contact.email}`;
-// Přílohy (soubory) přes AJAX nejdou – proto klasický multipart POST s návratem zpět.
-const FORM_ENDPOINT = `https://formsubmit.co/${contact.email}`;
+// FormSubmit.co – odesílání bez vlastního serveru.
+// POZOR: při úplně prvním odeslání na danou adresu přijde do schránky aktivační
+// e-mail – stačí jednou kliknout na potvrzovací odkaz a pak už zprávy chodí samy.
 
 type Status = "idle" | "sending" | "sent" | "error";
 
 const field =
   "w-full rounded-xl border border-brand-200 bg-white px-4 py-3 text-stone-800 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-100";
 
-function OwnEmailBox({ subject, message }: { subject: string; message: string }) {
+// Typické přílohy – obrázky a běžné dokumenty.
+const ATTACH_ACCEPT = "image/*,.pdf,.doc,.docx,.odt,.txt,.heic";
+
+function OwnEmailBox({
+  to,
+  subject,
+  message,
+}: {
+  to: string;
+  subject: string;
+  message: string;
+}) {
   const [copied, setCopied] = useState(false);
 
   const copyEmail = async () => {
     try {
-      await navigator.clipboard.writeText(contact.email);
+      await navigator.clipboard.writeText(to);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
@@ -30,9 +38,9 @@ function OwnEmailBox({ subject, message }: { subject: string; message: string })
 
   const su = encodeURIComponent(subject);
   const body = encodeURIComponent(message);
-  const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}&su=${su}&body=${body}`;
-  const seznam = `https://email.seznam.cz/#compose?to=${contact.email}&subject=${su}`;
-  const mailto = `mailto:${contact.email}?subject=${su}&body=${body}`;
+  const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${su}&body=${body}`;
+  const seznam = `https://email.seznam.cz/#compose?to=${to}&subject=${su}`;
+  const mailto = `mailto:${to}?subject=${su}&body=${body}`;
 
   return (
     <div className="rounded-2xl border border-brand-100 bg-brand-50/50 p-4">
@@ -46,7 +54,7 @@ function OwnEmailBox({ subject, message }: { subject: string; message: string })
           className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-sm font-medium text-stone-700 ring-1 ring-brand-200 hover:bg-brand-50"
         >
           <MailIcon className="h-4 w-4 text-brand-600" />
-          {contact.email}
+          {to}
           <span className="text-brand-600">
             {copied ? "✓ zkopírováno" : "kopírovat"}
           </span>
@@ -83,21 +91,38 @@ function OwnEmailBox({ subject, message }: { subject: string; message: string })
 export function ContactForm({
   defaultSubject = "Dotaz z webu Hafiáda",
   withAttachment = false,
+  editableSubject = false,
+  allowAttachments = false,
+  recipient,
 }: {
   defaultSubject?: string;
   withAttachment?: boolean;
+  editableSubject?: boolean;
+  allowAttachments?: boolean;
+  recipient?: string;
 }) {
+  // Zprávy z webu vždy chodí na sdílenou schránku týmu (spolehlivě doručeno).
+  // `recipient` jen přepne adresu pro "napsat z vlastního e-mailu" (přímo dané
+  // organizátorce), aby měl návštěvník obě možnosti.
+  const ajaxEndpoint = `https://formsubmit.co/ajax/${contact.email}`;
+  const formEndpoint = `https://formsubmit.co/${contact.email}`;
+  const directEmail = recipient ?? contact.email;
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState(defaultSubject);
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<Status>("idle");
+
+  // Soubory potřebují klasický multipart POST (přes AJAX přílohy neprojdou).
+  const nativeForm = withAttachment || allowAttachments;
 
   // Bezpřílohová varianta – přímé odeslání přes AJAX (zůstane na stránce).
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setStatus("sending");
     try {
-      const res = await fetch(AJAX_ENDPOINT, {
+      const res = await fetch(ajaxEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -107,7 +132,7 @@ export function ContactForm({
           name,
           email,
           message,
-          _subject: `${defaultSubject} – ${name || "návštěvník"}`,
+          _subject: `${subject} – ${name || "návštěvník"}`,
           _template: "table",
           _captcha: "false",
           _replyto: email,
@@ -118,6 +143,7 @@ export function ContactForm({
         setName("");
         setEmail("");
         setMessage("");
+        setSubject(defaultSubject);
       } else {
         setStatus("error");
       }
@@ -148,22 +174,25 @@ export function ContactForm({
     );
   }
 
-  // Varianta s nahráním fotek – klasický multipart POST přímo na FormSubmit.
+  // Varianta s přílohami – klasický multipart POST přímo na FormSubmit.
   // Po odeslání se prohlížeč vrátí zpět na stránku (_next) s potvrzením.
-  if (withAttachment) {
+  if (nativeForm) {
+    const photoMode = withAttachment && !allowAttachments;
     const nextUrl =
       typeof window !== "undefined"
-        ? `${window.location.origin}${window.location.pathname}?odeslano=fotka`
+        ? `${window.location.origin}${window.location.pathname}?odeslano=${photoMode ? "fotka" : "zprava"}`
         : "/";
     return (
       <div className="space-y-5">
         <form
-          action={FORM_ENDPOINT}
+          action={formEndpoint}
           method="POST"
           encType="multipart/form-data"
           className="space-y-4"
         >
-          <input type="hidden" name="_subject" value={defaultSubject} />
+          {!editableSubject && (
+            <input type="hidden" name="_subject" value={defaultSubject} />
+          )}
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_next" value={nextUrl} />
@@ -186,37 +215,64 @@ export function ContactForm({
               required
             />
           </div>
+          {editableSubject && (
+            <div>
+              <label className="mb-1 block text-sm font-semibold text-stone-700">
+                Předmět
+              </label>
+              <input
+                name="_subject"
+                className={field}
+                defaultValue={defaultSubject}
+                required
+              />
+            </div>
+          )}
           <div>
             <label className="mb-1 block text-sm font-semibold text-stone-700">
-              Fotky
+              {photoMode ? "Fotky" : "Zpráva"}
             </label>
-            <input
-              type="file"
-              name="fotka"
-              accept="image/*"
-              multiple
-              required
-              className="w-full rounded-xl border border-dashed border-brand-300 bg-brand-50/50 px-4 py-3 text-sm text-stone-700 file:mr-3 file:rounded-full file:border-0 file:bg-brand-500 file:px-4 file:py-2 file:font-semibold file:text-white hover:file:bg-brand-600"
-            />
-            <p className="mt-1 text-xs text-stone-500">
-              Můžete vybrat i více fotek. Doporučená velikost do ~10 MB na fotku.
-            </p>
+            {photoMode ? null : (
+              <textarea rows={4} name="message" className={field} required />
+            )}
+            {photoMode && (
+              <input
+                type="file"
+                name="fotka"
+                accept="image/*"
+                multiple
+                required
+                className="w-full rounded-xl border border-dashed border-brand-300 bg-brand-50/50 px-4 py-3 text-sm text-stone-700 file:mr-3 file:rounded-full file:border-0 file:bg-brand-500 file:px-4 file:py-2 file:font-semibold file:text-white hover:file:bg-brand-600"
+              />
+            )}
           </div>
-          <div>
-            <label className="mb-1 block text-sm font-semibold text-stone-700">
-              Vzkaz (nepovinné)
-            </label>
-            <textarea rows={3} name="message" className={field} />
-          </div>
+          {!photoMode && (
+            <div>
+              <label className="mb-1 block text-sm font-semibold text-stone-700">
+                Přílohy <span className="font-normal text-stone-400">(nepovinné)</span>
+              </label>
+              <input
+                type="file"
+                name="priloha"
+                accept={ATTACH_ACCEPT}
+                multiple
+                className="w-full rounded-xl border border-dashed border-brand-300 bg-brand-50/50 px-4 py-3 text-sm text-stone-700 file:mr-3 file:rounded-full file:border-0 file:bg-brand-500 file:px-4 file:py-2 file:font-semibold file:text-white hover:file:bg-brand-600"
+              />
+              <p className="mt-1 text-xs text-stone-500">
+                Můžete přiložit fotky i dokumenty (PDF, Word). Více souborů
+                najednou, doporučeně do ~10 MB na soubor.
+              </p>
+            </div>
+          )}
 
-          <Button type="submit">Odeslat fotky</Button>
+          <Button type="submit">{photoMode ? "Odeslat fotky" : "Odeslat zprávu"}</Button>
           <p className="text-xs text-stone-400">
             Po odeslání vás stránka na chvíli přesměruje a pak vrátí zpět s
             potvrzením.
           </p>
         </form>
 
-        <OwnEmailBox subject={defaultSubject} message="" />
+        <OwnEmailBox to={directEmail} subject={defaultSubject} message="" />
       </div>
     );
   }
@@ -248,6 +304,19 @@ export function ContactForm({
             required
           />
         </div>
+        {editableSubject && (
+          <div>
+            <label className="mb-1 block text-sm font-semibold text-stone-700">
+              Předmět
+            </label>
+            <input
+              className={field}
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+              required
+            />
+          </div>
+        )}
         <div>
           <label className="mb-1 block text-sm font-semibold text-stone-700">
             Zpráva
@@ -273,7 +342,7 @@ export function ContactForm({
         </Button>
       </form>
 
-      <OwnEmailBox subject={defaultSubject} message={message} />
+      <OwnEmailBox to={directEmail} subject={subject} message={message} />
     </div>
   );
 }

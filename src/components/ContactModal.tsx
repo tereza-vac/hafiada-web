@@ -8,7 +8,14 @@ import {
 } from "react";
 import { ContactForm } from "./ContactForm";
 
-type ContactOptions = { attachment?: boolean };
+type ContactOptions = {
+  attachment?: boolean;
+  editableSubject?: boolean;
+  allowAttachments?: boolean;
+  recipient?: string;
+  title?: string;
+  subtitle?: string;
+};
 
 type ContactContextValue = {
   open: (subject?: string, options?: ContactOptions) => void;
@@ -25,11 +32,11 @@ export function useContact() {
 export function ContactProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const [subject, setSubject] = useState<string | undefined>(undefined);
-  const [attachment, setAttachment] = useState(false);
+  const [opts, setOpts] = useState<ContactOptions>({});
 
   const open = useCallback((s?: string, options?: ContactOptions) => {
     setSubject(s);
-    setAttachment(options?.attachment ?? false);
+    setOpts(options ?? {});
     setIsOpen(true);
   }, []);
 
@@ -74,16 +81,20 @@ export function ContactProvider({ children }: { children: ReactNode }) {
               </svg>
             </button>
             <h2 className="font-display text-2xl font-extrabold text-ink">
-              {attachment ? "Poslat fotku do soutěže" : "Napište nám"}
+              {opts.title ?? (opts.attachment ? "Poslat fotku do soutěže" : "Napište nám")}
             </h2>
             <p className="mt-1 mb-5 text-stone-600">
-              {attachment
-                ? "Vyplňte svůj e-mail a nahrajte fotku (nebo více fotek) přímo tady."
-                : "Vyplňte svůj e-mail a zprávu – ozveme se vám co nejdříve."}
+              {opts.subtitle ??
+                (opts.attachment
+                  ? "Vyplňte svůj e-mail a nahrajte fotku (nebo více fotek) přímo tady."
+                  : "Vyplňte svůj e-mail a zprávu – ozveme se vám co nejdříve.")}
             </p>
             <ContactForm
               defaultSubject={subject ?? "Dotaz z webu Hafiáda"}
-              withAttachment={attachment}
+              withAttachment={opts.attachment}
+              editableSubject={opts.editableSubject}
+              allowAttachments={opts.allowAttachments}
+              recipient={opts.recipient}
             />
           </div>
         </div>

@@ -24,6 +24,7 @@ function Countdownish() {
       label: "Kde",
       value: event.place,
       sub: `${event.placeShort} · ${event.district}`,
+      link: { href: event.mapUrl, label: "Zobrazit na mapě" },
     },
     { icon: PawIcon, label: "Přihlášky do", value: event.applicationDeadline },
   ];
@@ -42,6 +43,17 @@ function Countdownish() {
               {f.value}
             </p>
             {f.sub && <p className="mt-0.5 text-sm text-stone-500">{f.sub}</p>}
+            {f.link && (
+              <a
+                href={f.link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-1 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-700"
+              >
+                {f.link.label}
+                <span aria-hidden>→</span>
+              </a>
+            )}
           </div>
         </Card>
       ))}

@@ -1,12 +1,17 @@
 import { PageHero, Section, Card, SectionTitle } from "../components/ui";
-import { MailIcon, PhoneIcon, PinIcon } from "../components/icons";
+import { MailIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "../components/icons";
 import { contact, event } from "../data/site";
 import { images } from "../data/images";
 import { ContactForm } from "../components/ContactForm";
 import { DonationQR } from "../components/DonationQR";
+import { useContact } from "../components/ContactModal";
 import { useSeo } from "../hooks/useSeo";
 
+const waLink = (phone: string) =>
+  `https://wa.me/${phone.replace(/[^\d]/g, "")}`;
+
 export default function KontaktPage() {
+  const { open } = useContact();
   useSeo({
     title: "Kontakt",
     description:
@@ -40,14 +45,35 @@ export default function KontaktPage() {
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
-                  <PinIcon className="mt-0.5 h-5 w-5 text-brand-600" />
-                  <span className="text-stone-700">
-                    {event.place}
-                    <br />
-                    <span className="text-sm text-stone-500">
-                      {event.placeShort}, {event.district}
-                    </span>
-                  </span>
+                  <PinIcon className="mt-0.5 h-5 w-5 shrink-0 text-brand-600" />
+                  <div className="text-stone-700">
+                    <p className="font-semibold">{event.place}</p>
+                    <p className="text-sm text-stone-600">{event.addressFull}</p>
+                    <p className="text-sm text-stone-500">
+                      {event.placeShort} · {event.district}
+                    </p>
+                    <p className="mt-0.5 text-xs text-stone-400">
+                      GPS {event.gps}
+                    </p>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      <a
+                        href={event.mapUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-full bg-brand-500 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-brand-600"
+                      >
+                        <PinIcon className="h-4 w-4" /> Otevřít v mapě
+                      </a>
+                      <a
+                        href={event.mapUrlMapy}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-sm font-medium text-stone-700 ring-1 ring-brand-200 transition hover:bg-brand-50"
+                      >
+                        Mapy.cz
+                      </a>
+                    </div>
+                  </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-0.5 font-bold text-brand-600">č.ú.</span>
@@ -83,11 +109,52 @@ export default function KontaktPage() {
                         </a>
                       )}
                       {o.email && (
-                        <a
-                          href={`mailto:${o.email}`}
-                          className="flex items-center gap-2 hover:text-brand-700"
+                        <button
+                          type="button"
+                          onClick={() =>
+                            open(`Dotaz pro ${o.name} (z webu)`, {
+                              editableSubject: true,
+                              allowAttachments: true,
+                              recipient: o.email,
+                              title: `Napsat: ${o.name}`,
+                              subtitle:
+                                "Napište zprávu rovnou odsud – můžete upravit předmět i přidat přílohy.",
+                            })
+                          }
+                          className="flex items-center gap-2 text-left hover:text-brand-700"
                         >
                           <MailIcon className="h-5 w-5 text-brand-600" /> {o.email}
+                        </button>
+                      )}
+                    </div>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {o.email && (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            open(`Dotaz pro ${o.name} (z webu)`, {
+                              editableSubject: true,
+                              allowAttachments: true,
+                              recipient: o.email,
+                              title: `Napsat: ${o.name}`,
+                              subtitle:
+                                "Napište zprávu rovnou odsud – můžete upravit předmět i přidat přílohy.",
+                            })
+                          }
+                          className="inline-flex items-center gap-1.5 rounded-full bg-brand-500 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-brand-600"
+                        >
+                          <MailIcon className="h-4 w-4" /> Napsat e-mail
+                        </button>
+                      )}
+                      {o.phone && (
+                        <a
+                          href={waLink(o.phone)}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`Napsat ${o.name} na WhatsApp`}
+                          className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366] px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-[#1fb959]"
+                        >
+                          <WhatsAppIcon className="h-4 w-4" /> WhatsApp
                         </a>
                       )}
                     </div>
