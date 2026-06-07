@@ -162,17 +162,20 @@ export const competitions: Competition[] = [
   {
     title: "Dětský koutek",
     paragraphs: [
-      "Po celou dobu Hafiády bude pro děti připravený dětský koutek plný zábavy – různé hry, omalovánky, malování na obličej i velká skákací atrakce. Prostě TOP zábava pro děti.",
+      "Po celou dobu Hafiády bude pro děti připravený dětský koutek plný zábavy – různé hry, sportovní soutěže, doplňovačky, omalovánky, výroba náramku se jménem, malování na obličej i velká skákací atrakce. Prostě TOP zábava pro děti.",
       "Součástí koutku je i soutěž v kreslení psa, která probíhá po celou dobu Hafiády.",
     ],
+    note: "Dohled a bezpečnost dětí (zejména těch menších) zajišťuje po celou dobu jejich doprovod – rodiče.",
     sections: [
       {
         heading: "Soutěž v kreslení psa",
         items: [
-          "Děti mají k dispozici výkresy různého formátu, pastelky, tempery, vodové barvy i štětce.",
-          "Obrázek musí dítě nakreslit vlastnoručně, bez předlohy.",
+          "Děti mají k dispozici výkresy různého formátu, pastelky, tužky, tempery, vodové barvy i štětce. Pokud chtějí, mohou si přinést i vlastní pastelky nebo tužky.",
+          "Dítě musí obrázek nakreslit nebo namalovat vlastnoručně – bez předlohy, a to ani z mobilního telefonu.",
+          "U kreslení je k dispozici dohled, který dětem pomůže ostrouhat pastelky či tužky, vymění vodu a dohlédne na hladký průběh soutěže.",
+          "Bezpečnost menších dětí si musí zajistit jejich doprovod (rodiče).",
           "Hodnotit obrázky bude odborná porota – hodnotí se pouze obrázky vzniklé na místě.",
-          "Donesené obrázky bude možné vystavit v galerii v areálu parku.",
+          "Donesené obrázky se nehodnotí, je však možné je vystavit v galerii, která bude mít své místo v areálu parku.",
         ],
       },
     ],
