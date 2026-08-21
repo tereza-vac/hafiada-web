@@ -10,7 +10,7 @@ export default function PrihlaskaHafiadaPage() {
   useSeo({
     title: "Přihláška Hafiáda 2026",
     description:
-      "Přihlaste se na Hafiádu 2026 – zábavný den se psy. Uzávěrka přihlášek je 18. 8. 2026.",
+      `Přihlaste se na Hafiádu 2026 – zábavný den se psy. Uzávěrka přihlášek je ${event.applicationDeadline}.`,
   });
   return (
     <>

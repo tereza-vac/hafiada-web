@@ -1,6 +1,7 @@
 import { PageHero, Section, SectionTitle, Card, Button } from "../components/ui";
 import { CheckIcon, HeartIcon, RunIcon } from "../components/icons";
 import { images } from "../data/images";
+import { event } from "../data/site";
 import { PaymentDetails } from "../components/Payment";
 import { useSeo } from "../hooks/useSeo";
 
@@ -42,7 +43,7 @@ export default function HaficrossPage() {
                 Neboj se zúčastnit, i když se zrovna necítíš jako nejtrénovanější závodník. S ohledem na zdraví pejsků je závod určen pouze pro dospělé psy.
               </p>
               <p>
-                Chceš-li jet Hafiádu i Haficross, vyplň a odešli dvě přihlášky – jednu na Haficross, druhou na klasické disciplíny Hafiády.
+                Chceš-li jet Hafiádu i Haficross, vyplň a odešli dvě přihlášky – jednu na Haficross, druhou na klasické disciplíny Hafiády. Přihlášky přijímáme do {event.applicationDeadline}.
               </p>
             </div>
             <Button to="/prihlaska-haficross" className="mt-6">

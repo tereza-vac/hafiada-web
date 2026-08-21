@@ -1,7 +1,7 @@
 import { PageHero, Section, Callout, Card } from "../components/ui";
 import { GoogleForm } from "../components/GoogleForm";
 import { CheckIcon } from "../components/icons";
-import { forms } from "../data/site";
+import { event, forms } from "../data/site";
 import { images } from "../data/images";
 import { PaymentDetails } from "../components/Payment";
 import { useSeo } from "../hooks/useSeo";
@@ -10,14 +10,14 @@ export default function PrihlaskaHaficrossPage() {
   useSeo({
     title: "Přihláška Haficross 2026",
     description:
-      "Přihláška na Haficross 2026 – trasa ~6,8 km se psem. Startovné v plné výši pomáhá opuštěným zvířátkům.",
+      `Přihláška na Haficross 2026 – trasa ~6,8 km se psem. Uzávěrka přihlášek je ${event.applicationDeadline}.`,
   });
   return (
     <>
       <PageHero
         eyebrow="O pohár starosty Bystřice"
         title="Přihláška Haficross 2026"
-        subtitle="Trasa zhruba 6,8 km. Startovné v plné výši putuje na pomoc opuštěným zvířátkům."
+        subtitle={`Trasa zhruba 6,8 km. Uzávěrka přihlášek je ${event.applicationDeadline}. Startovné v plné výši putuje na pomoc opuštěným zvířátkům.`}
         image={images.running}
       />
       <Section>
