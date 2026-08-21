@@ -9,6 +9,7 @@ export type Competition = {
   paragraphs: string[];
   categories?: string[];
   note?: string;
+  badge?: string;
   sections?: DetailSection[];
 };
 
@@ -134,24 +135,34 @@ export const competitions: Competition[] = [
     ],
   },
   {
-    title: "Stezka nástrah",
+    title: "Hafitrojboj – Nej-Hafiaďák",
     paragraphs: [
-      "V této soutěži půjde o běh s překážkami – nebudou to ale překážky klasické, nýbrž lákadla, která jsou pro některé pejsky neodolatelná.",
-      "Nejprve vyběhne psovod, asistenti přidrží psa. Až bude pán v cíli, bude pes vypuštěn a pán se ho bude snažit přivolat. Účelem je proběhnout trasu v co nejrychlejším čase, oba časy se sčítají.",
+      "Hafitrojboj tvoří tři soutěže na čas: Hledej pána, Hafility a Stezka nástrah.",
     ],
+    note: "Kdo bude mít nejlepší celkový čas ze všech tří disciplín, získá titul Nej-Hafiaďák. Vítěz dostane pohár a medaili.",
+  },
+  {
+    title: "Hledej pána",
+    paragraphs: [
+      "Pejsek poznává svého pána mezi jinými lidmi. Paniček je schovaný s dalšími figuranty pod plachtou. Pes je vyzván k hledání pána po přivolání majitelem.",
+      "Čas se počítá od přivolání psa do úspěšného nalezení. Pokud pes majitele nenajde do 30 vteřin, může paniček přivolání zopakovat.",
+    ],
+    badge: "Hafitrojboj",
   },
   {
     title: "Hafility",
     paragraphs: [
       "V této soutěži se pes se svým psovodem v běhu snaží na čas překonat překážky. Časový limit pro překonání dráhy jsou 2 minuty. Při shodě časů rozhodne o pořadí los.",
     ],
+    badge: "Hafitrojboj",
   },
   {
-    title: "Najdi svého pána",
+    title: "Stezka nástrah",
     paragraphs: [
-      "Pejsek poznává svého pána mezi jinými lidmi. Paniček je schovaný s dalšími figuranty pod plachtou. Pes je vyzván k hledání pána po přivolání majitelem.",
-      "Čas se počítá od přivolání psa do úspěšného nalezení. Pokud pes majitele nenajde do 30 vteřin, může paniček přivolání zopakovat.",
+      "V této soutěži půjde o běh s překážkami – nebudou to ale překážky klasické, nýbrž lákadla, která jsou pro některé pejsky neodolatelná.",
+      "Nejprve vyběhne psovod, asistenti přidrží psa. Až bude pán v cíli, bude pes vypuštěn a pán se ho bude snažit přivolat. Účelem je proběhnout trasu v co nejrychlejším čase, oba časy se sčítají.",
     ],
+    badge: "Hafitrojboj",
   },
   {
     title: "GRAND HAFI",
@@ -190,14 +201,14 @@ export const schedule: ScheduleItem[] = [
   { time: "8:45", title: "Zahájení" },
   { time: "9:00", title: "Soutěže v poslušnosti + juniorhandling" },
   { time: "9:00–11:40", title: "Freestyle" },
-  { time: "9:00–11:00", title: "Hledej pána" },
+  { time: "9:00–11:00", title: "Hledej pána (Hafitrojboj)" },
   { time: "9:00–11:00", title: "Výstavy (Nejsladší štěně, Nejfešnější senior, Vestaj – voříšek, TOP – čistokrevňák)" },
   { time: "12:00", title: "Vyhlášení poslušnosti a Haficrossu" },
   { time: "13:00", title: "Vyhlášení Freestyle a soutěže Hledej pána" },
   { time: "13:20", title: "Ukázka psích sportů" },
-  { time: "13:40–15:30", title: "Hafility" },
+  { time: "13:40–15:30", title: "Hafility (Hafitrojboj)" },
   { time: "14:50", title: "Vyhlášení výstav" },
-  { time: "15:30", title: "Stezka nástrah" },
+  { time: "15:30", title: "Stezka nástrah (Hafitrojboj)" },
   { time: "16:30", title: "Ukázka" },
   { time: "16:45", title: "Karneval" },
 ];

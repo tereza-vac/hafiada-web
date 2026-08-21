@@ -8,7 +8,7 @@ export default function PravidlaPage() {
   useSeo({
     title: "Pravidla soutěží",
     description:
-      "Pravidla všech disciplín na Hafiádě 2026 – poslušnost, VESTAJ, TOP čistokrevňák, freestyle, karneval, hafility, stezka nástrah a Grand Hafi.",
+      "Pravidla všech disciplín na Hafiádě 2026 – poslušnost, VESTAJ, TOP čistokrevňák, freestyle, karneval, Hafitrojboj (Hledej pána, Hafility, Stezka nástrah) a Grand Hafi.",
   });
   return (
     <>
@@ -30,9 +30,16 @@ export default function PravidlaPage() {
         <div className="mx-auto mt-10 grid max-w-4xl gap-6">
           {competitions.map((c) => (
             <Card key={c.title}>
-              <h2 className="font-display text-2xl font-bold text-brand-700">
-                {c.title}
-              </h2>
+              <div className="flex flex-wrap items-center gap-2">
+                <h2 className="font-display text-2xl font-bold text-brand-700">
+                  {c.title}
+                </h2>
+                {c.badge && (
+                  <span className="rounded-full bg-brand-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-brand-700">
+                    {c.badge}
+                  </span>
+                )}
+              </div>
               <div className="mt-3 space-y-3 leading-relaxed text-stone-700">
                 {c.paragraphs.map((p, i) => (
                   <p key={i}>{p}</p>

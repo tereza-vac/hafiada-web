@@ -190,7 +190,7 @@ export default function HomePage() {
             {
               icon: TrophyIcon,
               title: "Spousta soutěží",
-              text: "Poslušnost, freestyle, výstavy krásy, hafility, stezka nástrah, karneval i Grand Hafi o nejvíc bodů.",
+              text: "Poslušnost, freestyle, výstavy krásy, Hafitrojboj o titul Nej-Hafiaďák, karneval i Grand Hafi o nejvíc bodů.",
               to: "/pravidla",
               cta: "Pravidla soutěží",
             },
