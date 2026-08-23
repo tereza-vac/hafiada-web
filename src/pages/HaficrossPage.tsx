@@ -37,7 +37,7 @@ export default function HaficrossPage() {
             <SectionTitle eyebrow="Milý závodníku" title="Proběhni se s Hafiádou" />
             <div className="space-y-4 text-[17px] leading-relaxed text-stone-700">
               <p>
-                Jsme rádi, že tě můžeme přivítat! Nejde jen o výkon, ale také o dobrý skutek a věříme, že především o zábavu. Máme pro tebe připravenou trať o délce zhruba 6,8 km.
+                Jsme rádi, že tě můžeme přivítat! Nejde jen o výkon, ale také o dobrý skutek a věříme, že především o zábavu. Máme pro tebe připravenou trať o délce zhruba 6,8 km. Prezence (předání startovací karty a mapy) je od 7:00 do 9:00, startovací okénko od 7:30 do 9:00.
               </p>
               <p>
                 Neboj se zúčastnit, i když se zrovna necítíš jako nejtrénovanější závodník. S ohledem na zdraví pejsků je závod určen pouze pro dospělé psy.

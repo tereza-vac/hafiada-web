@@ -196,8 +196,9 @@ export const competitions: Competition[] = [
 export type ScheduleItem = { time: string; title: string };
 
 export const schedule: ScheduleItem[] = [
-  { time: "7:30–8:30", title: "Prezence" },
-  { time: "7:30–9:00", title: "Start Haficrossu" },
+  { time: "7:00–9:00", title: "Prezence Haficross (startovací karta a mapa)" },
+  { time: "7:30–8:30", title: "Prezence Hafiády" },
+  { time: "7:30–9:00", title: "Startovací okénko Haficross" },
   { time: "8:45", title: "Zahájení" },
   { time: "9:00", title: "Soutěže v poslušnosti + juniorhandling" },
   { time: "9:00–11:40", title: "Freestyle" },

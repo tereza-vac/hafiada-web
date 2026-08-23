@@ -4,9 +4,9 @@ import { images } from "../data/images";
 import { useSeo } from "../hooks/useSeo";
 
 const info = [
-  "Startovací okno bude otevřené od 8:00 do 9:00 hodin – přijít můžete kdykoliv v tuto dobu.",
+  "Prezence (předání startovací karty a mapy) probíhá od 7:00 do 9:00.",
+  "Startovací okénko je otevřené od 7:30 do 9:00 – přijít můžete kdykoliv v tuto dobu.",
   "Startovací okénko najdete v areálu konání Hafiády. U vstupu řekněte, že jdete na Haficross, a nasměrujeme vás.",
-  "Při prezenci závodníci obdrží mapu závodu velikosti A4 a startovací kartu.",
   "Na trati bude minimálně jeden kontrolní bod.",
   "Výsledky budou vyhlášeny v místě konání Hafiády ve 12 hodin.",
 ];

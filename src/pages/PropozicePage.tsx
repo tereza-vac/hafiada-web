@@ -11,7 +11,7 @@ const arrival = [
   "Vstup do areálu bude umožněn od 7 hodin.",
   "Každý startující pes musí mít vyplněnou vlastní přihlášku.",
   "Pokud startují 2 a více psů jednoho majitele, na přihlášce uveďte v poznámce „2. pes, 3. pes majitele XY“.",
-  "Start Haficrossu bude v místě konání Hafiády, první startovní okénko se otevře v 8 hodin.",
+  "Start Haficrossu bude v místě konání Hafiády. Prezence (předání startovací karty a mapy) od 7:00 do 9:00, startovací okénko od 7:30 do 9:00.",
 ];
 
 const extra = [
