@@ -43,8 +43,8 @@ export function PinIcon(props: IconProps) {
 
 export function HeartIcon(props: IconProps) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden {...props}>
-      <path d="M12 21s-6.7-4.3-9.3-8.5C.8 9.2 2.3 5.5 5.7 5.1c2-.2 3.4 1 4.3 2.3.9-1.3 2.3-2.5 4.3-2.3 3.4.4 4.9 4.1 3 7.4C18.7 16.7 12 21 12 21Z" />
+    <svg viewBox="0 0 24 24" aria-hidden {...props} fill="currentColor" stroke="none">
+      <path d="M4.318 6.318a4.5 4.5 0 0 0 0 6.364L12 20.364l7.682-7.682a4.5 4.5 0 0 0-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 0 0-6.364 0Z" />
     </svg>
   );
 }
