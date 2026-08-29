@@ -114,7 +114,7 @@ export default function SponzoriPage() {
                       rel="noreferrer"
                       className="font-semibold text-brand-700 transition hover:text-brand-800"
                     >
-                      {p.name}
+                      {p.name} <span aria-hidden>↗</span>
                     </a>
                   ) : (
                     inner
