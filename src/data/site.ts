@@ -146,6 +146,7 @@ export const sponsors: Sponsor[] = [
   { name: "Karireal", logo: sponsorLogos.karireal, url: "https://www.karireal.cz/" },
   { name: "ZM Servis Moravia", logo: sponsorLogos.zmservis, url: "https://www.zmservis-moravia.cz/" },
   { name: "A8 Reklama", logo: sponsorLogos.a8, url: "https://a8reklama.cz/" },
+  { name: "A-Z Tour", logo: sponsorLogos.aztour, url: "https://www.ckaztour.cz/" },
   { name: "NNT Products", logo: sponsorLogos.nnt, url: "https://www.nntproducts.cz/" },
   { name: "Rosigrafik – grafika & design", logo: sponsorLogos.rosigrafik, url: "https://www.rosigrafik.cz/" },
   { name: "Szturc – tvůrce interiérů", logo: sponsorLogos.szturc, url: "https://www.szturc.cz/" },
@@ -157,7 +158,6 @@ export type Partner = { name: string; url?: string };
 // Partneři z oficiálního plakátu Hafiády 2026, kteří zatím nemají logo na webu.
 export const partners: Partner[] = [
   { name: "Mikroregion Bystřice-Nýdek-Vendryně", url: "https://www.mikroregion-bnv.cz/" },
-  { name: "A-Z Tour", url: "https://www.ckaztour.cz/" },
   { name: "Suderoptik s.r.o.", url: "https://www.suderoptik.cz/" },
   { name: "TOS security", url: "https://www.tossecurity.cz/" },
   { name: "Lékárna Herba Bystřice", url: "https://www.herba-lekarna.cz/" },

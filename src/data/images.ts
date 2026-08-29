@@ -30,4 +30,5 @@ export const sponsorLogos = {
   karireal: asset("images/sponsors/karireal.svg"),
   zmservis: asset("images/sponsors/zmservis.png"),
   jkanimals: asset("images/sponsors/jkanimals.svg"),
+  aztour: asset("images/sponsors/aztour.svg"),
 };

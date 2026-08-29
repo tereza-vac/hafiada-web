@@ -62,25 +62,27 @@ export default function SponzoriPage() {
             .map((s) => {
             const inner = (
               <>
-                <img
-                  src={s.logo}
-                  alt={s.name}
-                  loading="lazy"
-                  className="max-h-24 w-auto object-contain"
-                />
-                <span className="mt-3 text-center text-sm font-semibold text-stone-600">
+                <div className="flex h-24 w-full items-center justify-center">
+                  <img
+                    src={s.logo}
+                    alt={s.name}
+                    loading="lazy"
+                    className="max-h-24 max-w-full object-contain"
+                  />
+                </div>
+                <span className="mt-3 text-center text-sm font-semibold leading-tight text-stone-600">
                   {s.name}
                 </span>
               </>
             );
             return (
-              <Card key={s.name} className="flex h-44 flex-col items-center justify-center">
+              <Card key={s.name} className="flex h-44 flex-col items-center justify-center px-4">
                 {s.url ? (
                   <a
                     href={s.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex flex-col items-center transition hover:opacity-80"
+                    className="flex h-full w-full flex-col items-center justify-center transition hover:opacity-80"
                   >
                     {inner}
                   </a>
