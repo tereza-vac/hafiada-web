@@ -88,13 +88,29 @@ export const contact = {
 };
 
 // ---------------------------------------------------------------------------
+// ONLINE PŘIHLÁŠKY
+// ---------------------------------------------------------------------------
+// true  = zobrazit Google formuláře (nebo hlášku „Formulář se připravuje“,
+//         pokud je url prázdné).
+// false = formuláře zůstanou v kódu, ale na webu je hláška o uzávěrce
+//         a registraci na místě. Pro příští ročník stačí přepnout na true.
+export const onlineApplicationsOpen = false;
+
+export const applicationsClosed = {
+  title: "Online přihlášky jsou uzavřené",
+  heroSubtitle:
+    "Online přihlášky jsme uzavřeli. Zítra se můžete registrovat přímo na místě – těšíme se na vás!",
+  body: `Online přihlášky jsme uzavřeli. Zítra ${event.dateWhen} se můžete registrovat přímo na místě od ${event.startTime} (${event.place}). Těšíme se na vás!`,
+  seo: `Online přihlášky na Hafiádu ${event.year} jsou uzavřené. Zítra ${event.dateWhen} se můžete registrovat na místě.`,
+};
+
+// ---------------------------------------------------------------------------
 // GOOGLE FORMULÁŘE
 // ---------------------------------------------------------------------------
-// Až budou formuláře hotové, vlož sem jejich URL. Web umí dva režimy:
-//   1) "embed"  – formulář se zobrazí přímo na stránce (iframe). Vlož odkaz,
-//                 který v Google Forms získáš přes Odeslat → < > (embed).
-//   2) "link"   – jen tlačítko, které otevře Google formulář v novém okně.
-// Pokud necháš url prázdné (""), zobrazí se hláška „Formulář se připravuje“.
+// URL necháváme uložené, ať se dají znovu zapnout přes onlineApplicationsOpen.
+// Režimy: "embed" (iframe na stránce) nebo "link" (tlačítko do nového okna).
+// Pokud je url prázdné ("") a přihlášky jsou otevřené, zobrazí se
+// hláška „Formulář se připravuje“.
 // ---------------------------------------------------------------------------
 
 export type FormConfig = {

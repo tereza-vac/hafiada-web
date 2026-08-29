@@ -2,6 +2,7 @@ import { PageHero, Section, Card, Callout, Button } from "../components/ui";
 import { CheckIcon } from "../components/icons";
 import { haficrossStartlist } from "../data/content";
 import { images } from "../data/images";
+import { onlineApplicationsOpen } from "../data/site";
 import { Reveal } from "../components/Reveal";
 import { useSeo } from "../hooks/useSeo";
 
@@ -103,7 +104,9 @@ export default function StartovkaPage() {
             <Button to="/haficross" variant="secondary">
               O Haficrossu
             </Button>
-            <Button to="/prihlaska-haficross">Přihlásit se na Haficross</Button>
+            <Button to="/prihlaska-haficross">
+              {onlineApplicationsOpen ? "Přihlásit se na Haficross" : "Registrace na místě"}
+            </Button>
           </div>
         </div>
       </Section>

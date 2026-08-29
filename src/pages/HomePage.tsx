@@ -10,7 +10,7 @@ import {
   RunIcon,
   TrophyIcon,
 } from "../components/icons";
-import { event, photoContest } from "../data/site";
+import { event, onlineApplicationsOpen, photoContest } from "../data/site";
 import { images } from "../data/images";
 import { PaymentQR } from "../components/Payment";
 import { Reveal } from "../components/Reveal";
@@ -27,7 +27,9 @@ function Countdownish() {
       sub: `${event.placeShort} · ${event.district}`,
       link: { href: event.mapUrl, label: "Zobrazit na mapě" },
     },
-    { icon: PawIcon, label: "Přihlášky do", value: event.applicationDeadline },
+    onlineApplicationsOpen
+      ? { icon: PawIcon, label: "Přihlášky do", value: event.applicationDeadline }
+      : { icon: PawIcon, label: "Registrace", value: "zítra na místě" },
   ];
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -115,9 +117,15 @@ export default function HomePage() {
               className="mt-8 flex flex-wrap gap-3 animate-fade-up"
               style={{ animationDelay: "0.3s" }}
             >
-              <Button to="/prihlaska-hafiada">
-                <PawIcon className="h-5 w-5" /> Přihlásit se na Hafiádu
-              </Button>
+              {onlineApplicationsOpen ? (
+                <Button to="/prihlaska-hafiada">
+                  <PawIcon className="h-5 w-5" /> Přihlásit se na Hafiádu
+                </Button>
+              ) : (
+                <Button to="/prihlaska-hafiada">
+                  <PawIcon className="h-5 w-5" /> Těšíme se zítra
+                </Button>
+              )}
               <Button to="/harmonogram" variant="ghost">
                 Program dne
               </Button>
@@ -138,7 +146,10 @@ export default function HomePage() {
             <SectionTitle eyebrow="Hafiáda 2026 vás vítá" title="Den v dobré společnosti s vaším chlupáčem" />
             <div className="space-y-4 text-[17px] leading-relaxed text-stone-700">
               <p>
-                Zdravíme všechny pejskaře! Letos se na vás těšíme {event.dateWhen} v areálu ZŠ Bystřice (před bazénem), a to od {event.startTime} dopoledne. Přihlášky prosím posílejte do {event.applicationDeadline}.
+                Zdravíme všechny pejskaře! Letos se na vás těšíme {event.dateWhen} v areálu ZŠ Bystřice (před bazénem), a to od {event.startTime} dopoledne.{" "}
+                {onlineApplicationsOpen
+                  ? `Přihlášky prosím posílejte do ${event.applicationDeadline}.`
+                  : "Online přihlášky jsou uzavřené, zítra se můžete registrovat přímo na místě."}
               </p>
               <p>
                 Pro ty, kdo na Hafiádě ještě nebyli a jsou z daleka – naše Bystřice je v okrese Frýdek-Místek, pouhých 6 km od ocelářského města Třinec. Areál před bazénem je téměř v centru obce a všude budou šipky a směrovky.
@@ -278,15 +289,30 @@ export default function HomePage() {
               Užijte si den s vaším chlupáčem
             </h3>
             <p className="mt-3 text-brand-50">
-              Všichni účastníci se mohou těšit na dárkový balíček u registrace. U přihlášek na místě bohužel startovací balíček nezaručíme – proto neváhejte a pošlete přihlášku včas.
+              {onlineApplicationsOpen
+                ? "Všichni účastníci se mohou těšit na dárkový balíček u registrace. U přihlášek na místě bohužel startovací balíček nezaručíme – proto neváhejte a pošlete přihlášku včas."
+                : "Online přihlášky jsou uzavřené. Zítra se můžete registrovat přímo na místě – těšíme se na vás!"}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button to="/prihlaska-hafiada" variant="secondary">
-                Přihláška Hafiáda
-              </Button>
-              <Button to="/prihlaska-haficross" variant="ghost">
-                Přihláška Haficross
-              </Button>
+              {onlineApplicationsOpen ? (
+                <>
+                  <Button to="/prihlaska-hafiada" variant="secondary">
+                    Přihláška Hafiáda
+                  </Button>
+                  <Button to="/prihlaska-haficross" variant="ghost">
+                    Přihláška Haficross
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button to="/harmonogram" variant="secondary">
+                    Program dne
+                  </Button>
+                  <Button to="/prihlaska-hafiada" variant="ghost">
+                    Registrace na místě
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         </div>

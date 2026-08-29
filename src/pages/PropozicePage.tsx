@@ -1,6 +1,6 @@
 import { PageHero, Section, SectionTitle, Card, Callout } from "../components/ui";
 import { CheckIcon, PinIcon } from "../components/icons";
-import { event } from "../data/site";
+import { event, onlineApplicationsOpen } from "../data/site";
 import { images } from "../data/images";
 import { PaymentDetails } from "../components/Payment";
 import { useSeo } from "../hooks/useSeo";
@@ -136,7 +136,9 @@ export default function PropozicePage() {
             </Callout>
             <Callout tone="info">
               <p>
-                Uzávěrka přihlášek je {event.applicationDeadline}. Počet startujících psů je omezen kapacitou areálu – bez včasné přihlášky se nemusí podařit zúčastnit soutěží.
+                {onlineApplicationsOpen
+                  ? `Uzávěrka přihlášek je ${event.applicationDeadline}. Počet startujících psů je omezen kapacitou areálu – bez včasné přihlášky se nemusí podařit zúčastnit soutěží.`
+                  : `Online přihlášky jsou uzavřené. Zítra ${event.dateWhen} se můžete registrovat přímo na místě – těšíme se na vás.`}
               </p>
             </Callout>
           </div>

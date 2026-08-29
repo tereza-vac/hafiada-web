@@ -1,7 +1,7 @@
 import { PageHero, Section, SectionTitle, Card, Button } from "../components/ui";
 import { CheckIcon, HeartIcon, RunIcon } from "../components/icons";
 import { images } from "../data/images";
-import { event } from "../data/site";
+import { event, onlineApplicationsOpen } from "../data/site";
 import { PaymentDetails } from "../components/Payment";
 import { useSeo } from "../hooks/useSeo";
 
@@ -43,12 +43,15 @@ export default function HaficrossPage() {
                 Neboj se zúčastnit, i když se zrovna necítíš jako nejtrénovanější závodník. S ohledem na zdraví pejsků je závod určen pouze pro dospělé psy.
               </p>
               <p>
-                Chceš-li jet Hafiádu i Haficross, vyplň a odešli dvě přihlášky – jednu na Haficross, druhou na klasické disciplíny Hafiády. Přihlášky přijímáme do {event.applicationDeadline}.
+                {onlineApplicationsOpen
+                  ? `Chceš-li jet Hafiádu i Haficross, vyplň a odešli dvě přihlášky – jednu na Haficross, druhou na klasické disciplíny Hafiády. Přihlášky přijímáme do ${event.applicationDeadline}.`
+                  : "Online přihlášky jsou uzavřené. Zítra se můžete registrovat přímo na místě – těšíme se na vás."}
               </p>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button to="/prihlaska-haficross">
-                <RunIcon className="h-5 w-5" /> Přihláška na Haficross
+                <RunIcon className="h-5 w-5" />
+                {onlineApplicationsOpen ? "Přihláška na Haficross" : "Registrace na místě"}
               </Button>
               <Button to="/startovka" variant="secondary">
                 Startovní listina

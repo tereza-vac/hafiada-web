@@ -1,6 +1,25 @@
 import type { FormConfig } from "../data/site";
+import { applicationsClosed, onlineApplicationsOpen } from "../data/site";
 import { Button, Card } from "./ui";
 import { CalendarIcon, PawIcon } from "./icons";
+
+export function ApplicationsClosedNotice() {
+  return (
+    <Card className="bg-brand-50/70 text-center">
+      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-brand-100 text-brand-600">
+        <PawIcon className="h-8 w-8" />
+      </div>
+      <h3 className="mt-4 text-2xl font-bold">{applicationsClosed.title}</h3>
+      <p className="mx-auto mt-2 max-w-lg text-stone-600">{applicationsClosed.body}</p>
+      <div className="mt-5 flex flex-wrap justify-center gap-3">
+        <Button to="/harmonogram">Program dne</Button>
+        <Button to="/kontakt" variant="secondary">
+          Kontakt
+        </Button>
+      </div>
+    </Card>
+  );
+}
 
 export function GoogleForm({
   config,
@@ -9,6 +28,10 @@ export function GoogleForm({
   config: FormConfig;
   title: string;
 }) {
+  if (!onlineApplicationsOpen) {
+    return <ApplicationsClosedNotice />;
+  }
+
   if (!config.url) {
     return (
       <Card className="bg-brand-50/70 text-center">
