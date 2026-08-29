@@ -95,15 +95,15 @@ export const competitions: Competition[] = [
       "Do této soutěže se přijímají všichni kříženci. Soutěž je určena pro dospělé psy nad 1 rok věku.",
       "Vítězem bude voříšek nebo vořech, který se nejmíň podobá jakémukoliv obecně známému plemeni a má velké osobní kouzlo. Svou roli bude také hrát upravenost pejska.",
     ],
-    categories: ["malí pejsci (do 45 cm)", "střední a velcí pejsci (nad 45 cm)"],
+    categories: ["malí pejsci (do 40 cm)", "střední a velcí pejsci (nad 40 cm)"],
   },
   {
     title: "TOP čistokrevňák",
     paragraphs: [
       "Můžou se zúčastnit všichni čistokrevní psi bez rozdílu. Nevadí, že nemají PP, stačí když vypadají jako čistokrevní. Soutěž je určená pro dospělé psy od 1 roku výše. Kritériem bude krása a upravenost pejska.",
-      "POZOR! Štěňata soutěží pouze o „Nejmilejší štěně Hafiády“, nebudou vyzvána k soutěži o TOP čistokrevňáka ani o Nejvoříškovatějšího voříška. Do věku 1 roku nelze spolehlivě říct, jak pejsek bude v dospělosti vypadat.",
+      "POZOR! Štěňata soutěží pouze o „Nejsladší štěně Hafiády“, nebudou vyzvána k soutěži o TOP čistokrevňáka ani o Nejvoříškovatějšího voříška. Do věku 1 roku nelze spolehlivě říct, jak pejsek bude v dospělosti vypadat.",
     ],
-    categories: ["trpasličí a malí pejsci (do 45 cm)", "střední a velcí (nad 45 cm)"],
+    categories: ["trpasličí a malí pejsci (do 40 cm)", "střední a velcí (nad 40 cm)"],
   },
   {
     title: "HAFI KUSY (freestyle)",
@@ -117,32 +117,32 @@ export const competitions: Competition[] = [
     title: "KARNEVAL (soutěž o nejlepší společnou masku)",
     paragraphs: [
       "Tato soutěž je hodnocena jak publikem, tak i odbornou porotou. Proběhne formou přehlídky masek v kruhu. Kreativitě se meze nekladou, počet účastníků ve skupině není omezen.",
-      "Jedinou podmínkou je, aby skupina (člověk a pes) tvořila tematický celek (např. Čtyři v tanku a pes). Převlek psa není podmínkou.",
+      "Jedinou podmínkou je, aby skupina (člověk a pes) tvořila tematický celek (např. Čtyři v tanku a pes). Převlek psa není podmínkou. Diváci hlasují zeleným lístkem – urny jsou u prezence.",
     ],
   },
   {
     title: "Nejfešnější veterán",
     paragraphs: [
-      "Soutěž je určená všem pejskům jakékoli rasy či vzrůstu, kteří již dosáhli 9 let věku. Bude hodnocená publikem i odbornou porotou.",
+      "Soutěž je určená všem pejskům jakékoli rasy či vzrůstu, kteří již dosáhli 9 let věku. Jde o diváckou soutěž – hlasuje se žlutým lístkem, urny najdete u prezence.",
       "Který ze seniorů obdrží nejvíce hlasů, bude vyhlášen jako „Nejfešnější veterán“. Náš vítěz bude odměněn pohárem a cenou od sponzora.",
     ],
   },
   {
     title: "Nejsladší štěně",
     paragraphs: [
-      "Tato soutěž je hodnocena publikem, automaticky se jí účastní každé štěně, které obdrží soutěžní číslo. Za štěně se u nás považuje pejsek, který ještě nemá 1 rok.",
+      "Tato soutěž je hodnocena publikem, automaticky se jí účastní každé štěně, které obdrží soutěžní číslo. Za štěně se u nás považuje pejsek, který ještě nemá 1 rok. Diváci hlasují růžovým lístkem – urny jsou u prezence.",
       "Na přihlášku napište do kolonky „jméno psa“ jméno štěněte, pomlčku a poznámku ŠTĚNĚ. U prezence štěňátko obdrží růžovou mašli.",
     ],
   },
   {
-    title: "Hafitrojboj – Nej-Hafiaďák",
+    title: "Hafitrojboj – Nejlepší Hafibojař Hafiády",
     paragraphs: [
-      "Hafitrojboj tvoří tři soutěže na čas: Hledej pána, Hafility a Stezka nástrah.",
+      "Hafitrojboj tvoří tři soutěže na čas: Hledej svého pána, Hafility a Stezka nástrah.",
     ],
-    note: "Kdo bude mít nejlepší celkový čas ze všech tří disciplín, získá titul Nej-Hafiaďák. Vítěz dostane pohár a medaili.",
+    note: "Kdo bude mít nejlepší celkový čas ze všech tří disciplín, získá titul Nejlepší Hafibojař Hafiády. Vítěz dostane pohár a medaili.",
   },
   {
-    title: "Hledej pána",
+    title: "Hledej svého pána",
     paragraphs: [
       "Pejsek poznává svého pána mezi jinými lidmi. Paniček je schovaný s dalšími figuranty pod plachtou. Pes je vyzván k hledání pána po přivolání majitelem.",
       "Čas se počítá od přivolání psa do úspěšného nalezení. Pokud pes majitele nenajde do 30 vteřin, může paniček přivolání zopakovat.",
@@ -165,9 +165,9 @@ export const competitions: Competition[] = [
     badge: "Hafitrojboj",
   },
   {
-    title: "GRAND HAFI",
+    title: "GRAND PRIX 2026",
     paragraphs: [
-      "Vítězem se stane pes, který nasbírá za celou dobu Hafiády nejvíce bodů. V každé soutěži bude bodováno prvních 5 míst. Neváhejte a zúčastněte se co největšího počtu soutěží – ceny budou stát za to!",
+      "Celkovým vítězem Hafiády – Grand Prix 2026 – se stane pes, který nasbírá za celý den nejvíce bodů. V každé soutěži bude bodováno prvních 5 míst. Neváhejte a zúčastněte se co největšího počtu soutěží – ceny budou stát za to!",
     ],
   },
   {
@@ -193,23 +193,120 @@ export const competitions: Competition[] = [
   },
 ];
 
-export type ScheduleItem = { time: string; title: string };
+export type StartlistCategory = {
+  id: "women" | "men";
+  title: string;
+  names: string[];
+};
 
+export const haficrossStartlist: StartlistCategory[] = [
+  {
+    id: "women",
+    title: "Haficross ženy",
+    names: [
+      "Aneta Pobořilová",
+      "Šárka Walczyšková",
+      "Katerina Galikova",
+      "Klára Valicová",
+      "Monika Čaganová",
+      "Anika Grabec",
+      "Kristýna Křištofová",
+      "Nikol Křištofová",
+      "Natálie Nela Plevková",
+      "Tereza Vaňková",
+      "Eva Jurečková",
+      "Eva Bonnová",
+      "Tereza Wróblová",
+      "Pavlína Nepejchalová",
+      "Hana Jurajdová",
+      "Nicole Melarová",
+    ],
+  },
+  {
+    id: "men",
+    title: "Haficross muži",
+    names: [
+      "Filip Topič",
+      "Martin Čip",
+      "Pavel Bolek",
+      "Michal Daxner",
+      "Tomáš Pítr",
+      "Jakub Balcařík",
+      "Viktor Heneš",
+    ],
+  },
+];
+
+export type ScheduleKind = "info" | "competition" | "announcement" | "demo";
+
+export type ScheduleItem = {
+  time: string;
+  title: string;
+  place?: string;
+  kind?: ScheduleKind;
+};
+
+/** Ranní prezence a Haficross – pro účastníky, na diváckém programu není. */
+export const morningSchedule: ScheduleItem[] = [
+  { time: "7:00", title: "Vstup do areálu", kind: "info" },
+  { time: "7:00–9:00", title: "Prezence Haficross (startovací karta a mapa)", kind: "info" },
+  { time: "7:30–8:30", title: "Prezence Hafiády", kind: "info" },
+  { time: "7:30–9:00", title: "Startovací okénko Haficross", kind: "info" },
+];
+
+/** Program pro diváky podle oficiálního harmonogramu Hafiády 2026. */
 export const schedule: ScheduleItem[] = [
-  { time: "7:00–9:00", title: "Prezence Haficross (startovací karta a mapa)" },
-  { time: "7:30–8:30", title: "Prezence Hafiády" },
-  { time: "7:30–9:00", title: "Startovací okénko Haficross" },
-  { time: "8:45", title: "Zahájení" },
-  { time: "9:00", title: "Soutěže v poslušnosti + juniorhandling" },
-  { time: "9:00–11:40", title: "Freestyle" },
-  { time: "9:00–11:00", title: "Hledej pána (Hafitrojboj)" },
-  { time: "9:00–11:00", title: "Výstavy (Nejsladší štěně, Nejfešnější senior, Vestaj – voříšek, TOP – čistokrevňák)" },
-  { time: "12:00", title: "Vyhlášení poslušnosti a Haficrossu" },
-  { time: "13:00", title: "Vyhlášení Freestyle a soutěže Hledej pána" },
-  { time: "13:20", title: "Ukázka psích sportů" },
-  { time: "13:40–15:30", title: "Hafility (Hafitrojboj)" },
-  { time: "14:50", title: "Vyhlášení výstav" },
-  { time: "15:30", title: "Stezka nástrah (Hafitrojboj)" },
-  { time: "16:30", title: "Ukázka" },
-  { time: "16:45", title: "Karneval" },
+  { time: "8:30", title: "Zahájení", kind: "info" },
+  { time: "8:45", title: "Ukázka triků – FREESTYLE", place: "travnatá plocha", kind: "demo" },
+  { time: "9:00–12:00", title: "FREESTYLE – HAFI KUSY", place: "plocha pro Freestyle", kind: "competition" },
+  { time: "9:00–10:30", title: "Poslušnostní soutěže pro mládež", place: "hlavní plocha", kind: "competition" },
+  { time: "9:00–10:00", title: "Juniorhandling", place: "hlavní plocha", kind: "competition" },
+  { time: "10:10", title: "Vyhlášení vítězů JUNIORHANDLING", kind: "announcement" },
+  { time: "10:30", title: "Nejsladší štěně Hafiády • hlasování diváků", place: "hlavní plocha", kind: "competition" },
+  { time: "10:45", title: "VESTAJ – Nejvoříškovatější voříšek do 40 cm a nad 40 cm", place: "hlavní plocha", kind: "competition" },
+  { time: "11:15", title: "Vyhlášení vítězů poslušnostních soutěží", kind: "announcement" },
+  { time: "11:30", title: "TOP čistokrevňák do 40 cm a nad 40 cm", place: "hlavní plocha", kind: "competition" },
+  { time: "12:00", title: "Vyhlášení vítěze HAFICROSS", kind: "announcement" },
+  { time: "12:00", title: "Vyhlášení vítězů Nejsladší štěně a VESTAJ", kind: "announcement" },
+  { time: "12:15", title: "Nejfešnější veterán • divácká soutěž", kind: "competition" },
+  { time: "12:30", title: "Vyhlášení vítězů TOP čistokrevňák", kind: "announcement" },
+  { time: "12:30", title: "Ukázka TREIBALL – Markéta Kufová", kind: "demo" },
+  { time: "12:45", title: "Vyhlášení vítězů Nejfešnější veterán", kind: "announcement" },
+  { time: "13:10", title: "Vyhlášení vítězů fotosoutěže", kind: "announcement" },
+  { time: "13:30", title: "Ukázka RALLY OBEDIENCE – ABS psí škola", place: "travnatá plocha", kind: "demo" },
+  { time: "14:00", title: "Stezka nástrah", place: "travnatá plocha", kind: "competition" },
+  { time: "14:30", title: "Ukázka MANTRAILING – Renáta Ivánková", place: "hlavní plocha", kind: "demo" },
+  { time: "po ukázce", title: "Vyhlášení vítězů Stezky nástrah", kind: "announcement" },
+  { time: "15:10", title: "Hafility", place: "travnatá plocha", kind: "competition" },
+  { time: "15:40", title: "Představení hostů a organizací", kind: "info" },
+  { time: "15:40", title: "Vyhlášení vítěze Hledej svého pána", kind: "announcement" },
+  { time: "15:55", title: "Vyhlášení Nejlepšího Hafibojaře Hafiády", kind: "announcement" },
+  { time: "16:00", title: "Příprava na karneval", kind: "info" },
+  { time: "16:10", title: "Karneval • hlasování diváků + odborná porota", kind: "competition" },
+  { time: "16:25", title: "Přestávka • hudba a občerstvení • vyhodnocení kreslení", kind: "info" },
+  { time: "16:25", title: "Vyhlášení vítězů v kreslení", kind: "announcement" },
+  { time: "16:35", title: "Vyhlášení vítězů karnevalu", kind: "announcement" },
+  { time: "16:40", title: "Vyhlášení celkového vítěze Hafiády – GRAND PRIX 2026", kind: "announcement" },
+  { time: "od 17:00", title: "Volná zábava • konec programu", kind: "info" },
+];
+
+export const visitorNotes = [
+  {
+    title: "Dentální prohlídka",
+    text: "U stánku Diamona Clinic si pejsci mohou nechat zdarma zkontrolovat zoubky.",
+  },
+  {
+    title: "Dětský koutek",
+    text: "Po celý den je otevřený dětský koutek – hry, kreslení, náramky i skákací atrakce.",
+  },
+  {
+    title: "Jízdy elektromobilem",
+    text: "Od 11:00 jezdí elektromobil – svezení pro malé i velké.",
+  },
+];
+
+export const votingTickets = [
+  { color: "Růžový lístek", contest: "Nejsladší štěně" },
+  { color: "Žlutý lístek", contest: "Nejfešnější veterán" },
+  { color: "Zelený lístek", contest: "Karneval" },
 ];

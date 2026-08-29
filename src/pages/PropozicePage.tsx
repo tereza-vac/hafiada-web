@@ -21,6 +21,7 @@ const extra = [
   "Je nutno vzít s sebou očkovací průkaz psa s platným očkováním proti vzteklině.",
   "U vstupu proběhne zevrubná veterinární prohlídka. Psi viditelně nemocní nebudou vpuštěni.",
   "Na místě bude dostatek sáčků na exkrementy – uklízejte prosím po svém psovi i mimo areál.",
+  "U stánku Diamona Clinic je zdarma dentální prohlídka pejsků. Od 11:00 jezdí elektromobil a po celý den je otevřený dětský koutek.",
 ];
 
 export default function PropozicePage() {

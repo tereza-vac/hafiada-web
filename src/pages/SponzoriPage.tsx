@@ -1,6 +1,6 @@
 import { PageHero, Section, Card, Button } from "../components/ui";
 import { HeartIcon, MailIcon } from "../components/icons";
-import { sponsors } from "../data/site";
+import { partners, sponsors } from "../data/site";
 import { images } from "../data/images";
 import { useContact } from "../components/ContactModal";
 import { useSeo } from "../hooks/useSeo";
@@ -90,6 +90,39 @@ export default function SponzoriPage() {
               </Card>
             );
           })}
+        </div>
+
+        <div className="mt-12">
+          <h3 className="text-center font-display text-2xl font-bold">Další partneři akce</h3>
+          <p className="mx-auto mt-2 max-w-2xl text-center text-stone-600">
+            Děkujeme i všem, kdo Hafiádu 2026 podpořili a zatím tu nemají logo. Bez vás by to nešlo.
+          </p>
+          <ul className="mx-auto mt-6 grid max-w-4xl gap-3 sm:grid-cols-2">
+            {partners.map((p) => {
+              const inner = (
+                <span className="font-semibold text-stone-700">{p.name}</span>
+              );
+              return (
+                <li
+                  key={p.name}
+                  className="rounded-2xl border border-brand-100 bg-white px-4 py-3 text-center shadow-sm"
+                >
+                  {p.url ? (
+                    <a
+                      href={p.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-semibold text-brand-700 transition hover:text-brand-800"
+                    >
+                      {p.name}
+                    </a>
+                  ) : (
+                    inner
+                  )}
+                </li>
+              );
+            })}
+          </ul>
         </div>
 
         <div className="mt-12 rounded-3xl bg-brand-600 p-8 text-center text-white">

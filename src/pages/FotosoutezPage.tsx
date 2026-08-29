@@ -14,7 +14,7 @@ const conditions = [
 const voting = [
   "Soutěž je divácká, vyhodnocuje se 1.–3. místo. Ceny jsou poukázky na sportovní vybavení.",
   "Každý hlasující má 1 hlas – u vstupu obdrží hlasovací lístek označený „Fotosoutěž“, napíše na něj číslo fotky pejska, kterému dává hlas, a vhodí ho do schránky u tabla Fotosoutěž.",
-  "Vyhodnocení proběhne zhruba v polovině Hafiády. Hodinu před vyhlášením moderátor ohlásí „Stop hlasování“ (přesný čas závisí na programu).",
+  "Vyhlášení vítězů fotosoutěže je v 13:10. Hodinu předtím moderátor ohlásí „Stop hlasování“.",
   "Pokud majitel s pejskem nebude v době vyhlášení výsledků na Hafiádě přítomen, výhra bude předána dalšímu v pořadí s nejvyšším počtem hlasů.",
 ];
 

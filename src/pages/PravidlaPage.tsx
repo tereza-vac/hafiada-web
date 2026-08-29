@@ -8,7 +8,7 @@ export default function PravidlaPage() {
   useSeo({
     title: "Pravidla soutěží",
     description:
-      "Pravidla všech disciplín na Hafiádě 2026 – poslušnost, VESTAJ, TOP čistokrevňák, freestyle, karneval, Hafitrojboj (Hledej pána, Hafility, Stezka nástrah) a Grand Hafi.",
+      "Pravidla všech disciplín na Hafiádě 2026 – poslušnost, VESTAJ, TOP čistokrevňák, freestyle, karneval, Hafitrojboj (Hledej svého pána, Hafility, Stezka nástrah) a Grand Prix 2026.",
   });
   return (
     <>

@@ -123,7 +123,7 @@ export const photoContest = {
 
 export type Sponsor = { name: string; logo: string; url?: string; featured?: boolean };
 
-// Sponzoři převzatí z původního webu. Doplň/uprav názvy a přidej odkazy (url).
+// Sponzoři s logem. Další partneři bez loga jsou v `partners`.
 export const sponsors: Sponsor[] = [
   { name: "JK ANIMALS", logo: sponsorLogos.jkanimals, url: "https://www.jkanimals.cz/", featured: true },
   { name: "Obec Bystřice", logo: sponsorLogos.bystrice, url: "https://www.bystrice.cz/" },
@@ -134,4 +134,21 @@ export const sponsors: Sponsor[] = [
   { name: "Rosigrafik – grafika & design", logo: sponsorLogos.rosigrafik, url: "https://www.rosigrafik.cz/" },
   { name: "Szturc – tvůrce interiérů", logo: sponsorLogos.szturc, url: "https://www.szturc.cz/" },
   { name: "Cann Rest", logo: sponsorLogos.cannrest, url: "https://www.cannrest.cz/" },
+];
+
+export type Partner = { name: string; url?: string };
+
+// Partneři z oficiálního plakátu Hafiády 2026, kteří zatím nemají logo na webu.
+export const partners: Partner[] = [
+  { name: "Mikroregion Bystřice-Nýdek-Vendryně", url: "https://www.mikroregion-bnv.cz/" },
+  { name: "A-Z Tour", url: "https://www.ckaztour.cz/" },
+  { name: "Suderoptik s.r.o.", url: "https://www.suderoptik.cz/" },
+  { name: "TOS security" },
+  { name: "Lékárna Herba Bystřice" },
+  { name: "Bajusz s.r.o." },
+  { name: "Kara kebab – Bystřice" },
+  { name: "Prodejna Katka Nýdek" },
+  { name: "ZKO Třinec" },
+  { name: "Sbor dobrovolných hasičů Bystřice" },
+  { name: "Svaz zahrádkářů Bystřice" },
 ];

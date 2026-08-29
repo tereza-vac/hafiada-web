@@ -46,9 +46,14 @@ export default function HaficrossPage() {
                 Chceš-li jet Hafiádu i Haficross, vyplň a odešli dvě přihlášky – jednu na Haficross, druhou na klasické disciplíny Hafiády. Přihlášky přijímáme do {event.applicationDeadline}.
               </p>
             </div>
-            <Button to="/prihlaska-haficross" className="mt-6">
-              <RunIcon className="h-5 w-5" /> Přihláška na Haficross
-            </Button>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Button to="/prihlaska-haficross">
+                <RunIcon className="h-5 w-5" /> Přihláška na Haficross
+              </Button>
+              <Button to="/startovka" variant="secondary">
+                Startovní listina
+              </Button>
+            </div>
           </div>
           <img
             src={images.running}
