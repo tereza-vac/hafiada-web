@@ -139,6 +139,34 @@ export default function HomePage() {
         <Countdownish />
       </Section>
 
+      {/* RESULTS BANNER */}
+      <Section className="pt-0">
+        <Reveal>
+          <Link
+            to="/vysledky"
+            className="group relative block overflow-hidden rounded-3xl bg-gradient-to-r from-brand-600 to-brand-500 p-8 text-white shadow-lg transition hover:shadow-xl sm:p-10"
+          >
+            <TrophyIcon className="pointer-events-none absolute -right-6 -top-8 h-44 w-44 text-white/10 transition duration-500 group-hover:scale-110 group-hover:rotate-6" />
+            <div className="relative flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-sm font-bold uppercase tracking-wide backdrop-blur">
+                  <TrophyIcon className="h-4 w-4" /> Novinka
+                </p>
+                <h2 className="mt-3 font-display text-3xl font-extrabold sm:text-4xl">
+                  Výsledky Hafiády 2026 jsou tady!
+                </h2>
+                <p className="mt-2 max-w-xl text-brand-50">
+                  Celkové pořadí GRAND HAFI, NEJ HAFIAĎÁK, výsledky všech disciplín i Haficrossu.
+                </p>
+              </div>
+              <span className="inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3 font-bold text-brand-700 shadow-sm transition group-hover:gap-3">
+                Zobrazit výsledky <span aria-hidden>→</span>
+              </span>
+            </div>
+          </Link>
+        </Reveal>
+      </Section>
+
       {/* WELCOME */}
       <Section>
         <div className="grid items-center gap-10 lg:grid-cols-2">

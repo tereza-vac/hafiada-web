@@ -19,6 +19,7 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   { label: "Úvod", to: "/" },
+  { label: "Výsledky 2026", to: "/vysledky" },
   {
     label: "O nás",
     children: [
@@ -44,6 +45,7 @@ const navItems: NavItem[] = [
     children: [
       { label: "O Haficrossu 2026", to: "/haficross" },
       { label: "Startovka", to: "/startovka" },
+      { label: "Výsledky Haficross", to: "/vysledky" },
     ],
   },
 ];

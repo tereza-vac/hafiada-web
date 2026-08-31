@@ -13,6 +13,7 @@ import FotogaleriePage from "./pages/FotogaleriePage";
 import SponzoriPage from "./pages/SponzoriPage";
 import KontaktPage from "./pages/KontaktPage";
 import StartovkaPage from "./pages/StartovkaPage";
+import VysledkyPage from "./pages/VysledkyPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="sponzori" element={<SponzoriPage />} />
         <Route path="kontakt" element={<KontaktPage />} />
         <Route path="startovka" element={<StartovkaPage />} />
+        <Route path="vysledky" element={<VysledkyPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
